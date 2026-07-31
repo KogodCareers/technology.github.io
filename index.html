@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Technology Career Explorer | Kogod School of Business</title>
+  <meta name="description" content="Explore business-facing technology functions, skills, Kogod preparation resources, and pivot paths." />
+  <style>
+    /* ===================== DESIGN TOKENS ===================== */
+    :root, [data-theme="light"] {
+      --color-bg: #f7f8fb;
+      --color-surface: #ffffff;
+      --color-surface-2: #f3f5fb;
+      --color-surface-offset: #e0e5f5;
+      --color-surface-dynamic: #d9dce3;
+      --color-divider: #d9dce3;
+      --color-border: #8a95a5;
+      --color-text: #182449;
+      --color-text-muted: #4d5871;
+      --color-text-faint: #6f7a90;
+      --color-text-inverse: #ffffff;
+      --color-primary: #007a6a;
+      --color-primary-hover: #006454;
+      --color-primary-active: #00a38d;
+      --color-primary-light: #d9f1ed;
+      --color-accent: #f0df2c;
+      --color-accent-hover: #d8c700;
+      --color-accent-highlight: #fff8a6;
+      /* Kogod/AU brand colors */
+      --color-kogod: #ed193a;
+      --color-kogod-light: #fde7eb;
+      --color-kogod-border: #ed193a;
+      /* Sustainability green from Kogod's secondary palette */
+      --color-pivot: #007a6a;
+      --color-pivot-light: #e4f4f1;
+      --color-pivot-border: #00a38d;
+      /* CliftonStrengths domains */
+      --color-cs-executing: #3c208c;
+      --color-cs-executing-light: #f3e8ff;
+      --color-cs-executing-border: #c4b5fd;
+      --color-cs-influencing: #c8246a;
+      --color-cs-influencing-light: #fbe7f0;
+      --color-cs-influencing-border: #c8246a;
+      --color-cs-relationship: #004fa2;
+      --color-cs-relationship-light: #e2eefb;
+      --color-cs-relationship-border: #6995dd;
+      --color-cs-strategic: #007a6a;
+      --color-cs-strategic-light: #e4f4f1;
+      --color-cs-strategic-border: #00a38d;
+      /* Category colors */
+      --color-cat-ib: #182449;
+      --color-cat-cf: #004fa2;
+      --color-cat-am: #6995dd;
+      --color-cat-rm: #902178;
+      --color-cat-tr: #007a6a;
+      --color-cat-fp: #3c208c;
+      --color-cat-eq: #7a2287;
+      --color-cat-pe: #c8246a;
+      --radius-sm: 0.375rem;
+      --radius-md: 0.5rem;
+      --radius-lg: 0.75rem;
+      --radius-xl: 1rem;
+      --radius-2xl: 1.5rem;
+      --radius-full: 9999px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.1);
+      --shadow-lg: 0 12px 40px rgba(0,0,0,0.13);
+      --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+      --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem;
+      --space-4: 1rem; --space-5: 1.25rem; --space-6: 1.5rem;
+      --space-8: 2rem; --space-10: 2.5rem; --space-12: 3rem;
+      --space-16: 4rem; --space-20: 5rem;
+      --font-display: 'GT Walsheim', 'Helvetica Neue', Arial, sans-serif;
+      --font-body: 'GT Walsheim', 'Helvetica Neue', Arial, sans-serif;
+      --content-default: 1280px;
+    }
+
+    [data-theme="dark"] {
+      --color-bg: #182449;
+      --color-surface: #101a39;
+      --color-surface-2: #1e2b55;
+      --color-surface-offset: #24335f;
+      --color-surface-dynamic: #30406f;
+      --color-divider: #30406f;
+      --color-border: #6995dd;
+      --color-text: #ffffff;
+      --color-text-muted: #e0e5f5;
+      --color-text-faint: #b8c2d6;
+      --color-text-inverse: #182449;
+      --color-primary: #00a38d;
+      --color-primary-hover: #52c8bb;
+      --color-primary-active: #007a6a;
+      --color-primary-light: #143f49;
+      --color-accent: #f0df2c;
+      --color-accent-hover: #fff46a;
+      --color-accent-highlight: #4a4211;
+      --color-kogod: #ff6f82;
+      --color-kogod-light: #3a1830;
+      --color-kogod-border: #ed193a;
+      --color-pivot: #00a38d;
+      --color-pivot-light: #103a3e;
+      --color-pivot-border: #00a38d;
+      --color-cs-executing: #b9a7ff;
+      --color-cs-executing-light: #251a58;
+      --color-cs-executing-border: #3c208c;
+      --color-cs-influencing: #ff8db6;
+      --color-cs-influencing-light: #3b1830;
+      --color-cs-influencing-border: #c8246a;
+      --color-cs-relationship: #9fc4ff;
+      --color-cs-relationship-light: #132a50;
+      --color-cs-relationship-border: #6995dd;
+      --color-cs-strategic: #51c7b7;
+      --color-cs-strategic-light: #103a3e;
+      --color-cs-strategic-border: #00a38d;
+      --color-cat-ib: #e0e5f5;
+      --color-cat-cf: #6995dd;
+      --color-cat-am: #9fc4ff;
+      --color-cat-rm: #d18bdd;
+      --color-cat-tr: #00a38d;
+      --color-cat-fp: #b9a7ff;
+      --color-cat-eq: #d18bdd;
+      --color-cat-pe: #ff8db6;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.5);
+      --shadow-lg: 0 12px 40px rgba(0,0,0,0.6);
+    }
+    /* ===================== BASE ===================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; scroll-behavior: smooth; }
+    body { min-height: 100dvh; width: 100%; overflow-x: hidden; font-family: var(--font-body); font-size: var(--text-base); color: var(--color-text); background-color: var(--color-bg); line-height: 1.6; }
+    img, svg { display: block; max-width: 100%; }
+    button { cursor: pointer; background: none; border: none; font: inherit; color: inherit; }
+    a, button, [role="button"] { transition: color var(--transition), background var(--transition), border-color var(--transition), box-shadow var(--transition), opacity var(--transition); }
+    :focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; border-radius: var(--radius-sm); }
+    ::selection { background: color-mix(in oklch, var(--color-primary) 20%, transparent); color: var(--color-text); }
+
+    /* ===================== HEADER ===================== */
+    .site-header { position: relative; z-index: 100; background: var(--color-surface); border-bottom: 1px solid var(--color-border); backdrop-filter: blur(12px); }
+    .header-inner { max-width: var(--content-default); margin: 0 auto; padding: var(--space-4) var(--space-6); display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); }
+    .logo { display: flex; align-items: center; gap: var(--space-3); text-decoration: none; color: var(--color-text); }
+    .logo-img { display: block; width: min(260px, 52vw); height: auto; flex-shrink: 0; }
+    .kogod-badge { font-size: var(--text-xs); font-weight: 700; color: var(--color-text-inverse); background: var(--color-primary); border: 1px solid var(--color-primary); padding: 2px var(--space-2); border-radius: var(--radius-full); white-space: nowrap; }
+    .header-actions { display: flex; align-items: center; gap: var(--space-3); }
+    .theme-toggle { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-md); color: var(--color-text-muted); }
+    .theme-toggle:hover { background: var(--color-surface-offset); color: var(--color-text); }
+
+    /* ===================== HERO ===================== */
+    .hero { background: linear-gradient(135deg, #007a6a 0%, #007a6a 62%, #00a38d 100%); padding: clamp(var(--space-6), 4vw, var(--space-10)) var(--space-6); text-align: center; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); pointer-events: none; }
+    .hero-content { position: relative; max-width: 760px; margin: 0 auto; }
+    .hero-eyebrow { display: inline-flex; align-items: center; gap: var(--space-2); background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.9); font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: var(--space-1) var(--space-3); border-radius: var(--radius-full); margin-bottom: var(--space-3); }
+    .hero h1 { font-family: var(--font-display); font-weight: 800; font-size: var(--text-xl); color: #fff; letter-spacing: -0.02em; line-height: 1.08; margin-bottom: var(--space-3); }
+    .hero h1 em { font-style: normal; color: #fff; text-decoration: underline; text-decoration-color: var(--color-accent); text-decoration-thickness: 0.08em; text-underline-offset: 0.12em; }
+    .hero p { font-size: var(--text-sm); color: rgba(255,255,255,0.75); max-width: 60ch; margin: 0 auto var(--space-3); line-height: 1.55; }
+    .hero-kogod-note { display: inline-block; max-width: 72ch; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.85); font-size: var(--text-xs); font-weight: 500; padding: var(--space-2) var(--space-4); border-radius: var(--radius-md); margin-bottom: var(--space-4); line-height: 1.45; }
+    .hero-use-note { display: block; max-width: 64ch; margin: var(--space-2) auto 0; color: #fff; font-size: var(--text-xs); font-weight: 700; line-height: 1.5; }
+    .hero-stats { display: flex; justify-content: center; gap: var(--space-5); flex-wrap: wrap; }
+    .hero-stat { text-align: center; }
+    .hero-stat-number { font-family: var(--font-display); font-weight: 800; font-size: var(--text-xl); color: #fff; line-height: 1; }
+    .hero-stat-label { font-size: var(--text-xs); color: rgba(255,255,255,0.6); margin-top: var(--space-1); letter-spacing: 0.05em; text-transform: uppercase; }
+
+    /* ===================== LEGEND ===================== */
+    .legend-bar { background: var(--color-surface); border-bottom: 1px solid var(--color-border); padding: var(--space-3) var(--space-6); }
+    .legend-inner { max-width: var(--content-default); margin: 0 auto; display: flex; align-items: center; gap: var(--space-6); flex-wrap: wrap; }
+    .legend-title { font-size: var(--text-xs); font-weight: 700; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.08em; }
+    .legend-items { display: flex; gap: var(--space-5); flex-wrap: wrap; }
+    .legend-item { display: flex; align-items: center; gap: var(--space-2); font-size: var(--text-xs); color: var(--color-text-muted); }
+    .legend-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+
+    /* ===================== CONTROLS ===================== */
+    .controls-bar { background: var(--color-surface); border-bottom: 1px solid var(--color-border); padding: var(--space-4) var(--space-6); position: relative; z-index: 90; }
+    .controls-inner { max-width: var(--content-default); margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); }
+    .search-wrap { flex: 1; min-width: 200px; max-width: 300px; position: relative; }
+    .search-wrap svg { position: absolute; left: var(--space-3); top: 50%; transform: translateY(-50%); color: var(--color-text-muted); pointer-events: none; }
+    .search-input { width: 100%; padding: var(--space-2) var(--space-3) var(--space-2) 2.25rem; border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-bg); color: var(--color-text); font-size: var(--text-sm); font-family: var(--font-body); }
+    .search-input::placeholder { color: var(--color-text-faint); }
+    .search-input:focus { outline: 2px solid var(--color-primary); border-color: transparent; }
+    .filter-group { display: flex; align-items: center; gap: var(--space-2); flex-wrap: wrap; }
+    .filter-label { font-size: var(--text-xs); font-weight: 600; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.08em; white-space: nowrap; }
+    .filter-btn { min-height: 44px; padding: var(--space-1) var(--space-3); border-radius: var(--radius-full); border: 1.5px solid var(--color-border); font-size: var(--text-xs); font-weight: 600; color: var(--color-text-muted); background: var(--color-surface); white-space: nowrap; }
+    .filter-btn:hover { border-color: var(--color-primary); color: var(--color-primary); }
+    .filter-btn.active { background: var(--color-primary); border-color: var(--color-primary); color: var(--color-text-inverse); }
+    .sort-wrap { display: flex; align-items: center; gap: var(--space-2); margin-left: auto; }
+    .sort-select { min-height: 44px; padding: var(--space-2) var(--space-8) var(--space-2) var(--space-3); border: 1.5px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); color: var(--color-text); font-size: var(--text-xs); font-family: var(--font-body); font-weight: 500; cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 4l4 4 4-4' stroke='%236b7280' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right var(--space-3) center; }
+    .sort-select:focus { outline: 2px solid var(--color-primary); }
+    .results-count { font-size: var(--text-xs); color: var(--color-text-muted); font-weight: 500; }
+
+    /* ===================== MAIN GRID ===================== */
+    .main { max-width: var(--content-default); margin: 0 auto; padding: var(--space-8) var(--space-6) var(--space-20); }
+    .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: var(--space-6); }
+
+    /* ===================== CARD ===================== */
+    .card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-sm); transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition); display: flex; flex-direction: column; }
+    .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: var(--color-primary); }
+    .card.hidden { display: none; }
+
+    /* Card Header */
+    .card-header { padding: var(--space-5) var(--space-5) var(--space-4); border-bottom: 1px solid var(--color-divider); }
+    .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-3); margin-bottom: var(--space-3); }
+    .card-icon-wrap { width: 48px; height: 48px; border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.5rem; }
+    .card-category-badge { font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; padding: var(--space-1) var(--space-2); border-radius: var(--radius-sm); }
+    .card-title { font-family: var(--font-display); font-weight: 800; font-size: var(--text-lg); color: var(--color-text); letter-spacing: -0.02em; line-height: 1.2; margin-bottom: var(--space-2); }
+    .card-subtitle { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.5; }
+    .best-for { margin-top: var(--space-3); padding: var(--space-3); border-left: 3px solid var(--color-primary); border-radius: var(--radius-sm); background: var(--color-primary-light); color: var(--color-text); font-size: var(--text-xs); line-height: 1.5; }
+    .best-for strong { color: var(--color-primary); }
+
+    /* Salary Section */
+    .salary-section { padding: var(--space-4) var(--space-5); background: var(--color-surface-2); border-bottom: 1px solid var(--color-divider); }
+    .salary-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: var(--space-3); }
+    .salary-label { font-size: var(--text-xs); font-weight: 600; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.08em; }
+    .salary-total { font-family: var(--font-display); font-weight: 800; font-size: var(--text-lg); color: var(--color-text); }
+    .salary-total span { font-size: var(--text-sm); font-weight: 500; color: var(--color-text-muted); font-family: var(--font-body); }
+    .salary-levels { display: flex; flex-direction: column; gap: var(--space-2); }
+    .salary-row { display: grid; grid-template-columns: 90px 1fr 80px; align-items: center; gap: var(--space-3); font-size: var(--text-xs); }
+    .salary-level-name { color: var(--color-text-muted); font-weight: 500; }
+    .salary-bar-track { height: 6px; background: var(--color-surface-dynamic); border-radius: var(--radius-full); overflow: hidden; }
+    .salary-bar-fill { height: 100%; border-radius: var(--radius-full); }
+    .salary-amount { color: var(--color-text); font-weight: 600; text-align: right; }
+
+    /* Card Body */
+    .card-body { padding: var(--space-4) var(--space-5); flex: 1; }
+    .card-description { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.65; margin-bottom: var(--space-4); }
+    .card-body .card-description:last-child { margin-bottom: 0; }
+    .section-title { font-size: var(--text-xs); font-weight: 700; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--space-2); }
+    .skills-wrap { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-4); }
+    .skill-tag { font-size: var(--text-xs); font-weight: 500; padding: var(--space-1) var(--space-2); border-radius: var(--radius-sm); border: 1px solid var(--color-border); background: var(--color-surface-offset); color: var(--color-text-muted); }
+    .roles-list { display: flex; flex-direction: column; gap: var(--space-1); }
+    .role-item { display: flex; align-items: center; gap: var(--space-2); font-size: var(--text-xs); color: var(--color-text-muted); }
+    .role-item::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: currentColor; flex-shrink: 0; opacity: 0.5; }
+
+    /* Tab system for detail panels */
+    .card-footer { padding: 0; border-top: 1px solid var(--color-divider); }
+    .tab-buttons { display: flex; border-bottom: 1px solid var(--color-divider); }
+    .tab-btn {
+      flex: 1;
+      min-height: 48px;
+      padding: var(--space-3) var(--space-2);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      color: var(--color-text-muted);
+      background: var(--color-surface-2);
+      border: none;
+      border-right: 1px solid var(--color-divider);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-1);
+      transition: background var(--transition), color var(--transition);
+    }
+    .tab-btn:last-child { border-right: none; }
+    .tab-btn:hover { background: var(--color-surface-dynamic); color: var(--color-text); }
+    .tab-btn.active { background: var(--color-surface); color: var(--color-text); }
+    .tab-btn.active.tab-details { color: var(--color-primary); border-bottom: 2px solid var(--color-primary); }
+    .tab-btn.active.tab-context { color: var(--color-primary); border-bottom: 2px solid var(--color-primary); }
+    .tab-btn.active.tab-kogod { color: var(--color-kogod); border-bottom: 2px solid var(--color-kogod); }
+    .tab-btn.active.tab-pivot { color: var(--color-pivot); border-bottom: 2px solid var(--color-pivot); }
+    .tab-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+
+    /* Tab panels */
+    .tab-panels { display: none; }
+    .tab-panels.open { display: block; padding: var(--space-4) var(--space-5); }
+    .panel-close {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      margin: 0 0 var(--space-3) auto;
+      padding: var(--space-1) var(--space-3);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-full);
+      background: var(--color-surface);
+      color: var(--color-text-muted);
+      font-size: var(--text-xs);
+      font-weight: 700;
+    }
+    .panel-close:hover,
+    .panel-close:focus-visible {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+      background: var(--color-primary-light);
+    }
+    .tab-panel { display: block; }
+    .tab-panel:not(.active) { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* Details panel */
+    .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3) var(--space-4); margin-top: var(--space-2); }
+    .detail-item-label { font-size: var(--text-xs); font-weight: 600; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: var(--space-1); }
+    .detail-item-value { font-size: var(--text-sm); color: var(--color-text); font-weight: 500; }
+    .certs-wrap { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-2); }
+    .cert-tag { font-size: var(--text-xs); font-weight: 600; padding: var(--space-1) var(--space-2); border-radius: var(--radius-sm); background: var(--color-primary-light); color: var(--color-primary); }
+.skills-valued-group{margin-top:var(--space-4)}
+.skills-valued-label{font-size:var(--text-xs);font-weight:600;color:var(--color-text-muted);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:var(--space-2);margin-top:var(--space-3)}
+
+    /* Kogod panel */
+    .kogod-panel { background: var(--color-kogod-light); border-radius: var(--radius-lg); padding: var(--space-4); }
+    .kogod-panel-header { display: flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-3); }
+    .kogod-panel-title { font-family: var(--font-display); font-weight: 700; font-size: var(--text-sm); color: var(--color-kogod); }
+    .kogod-section { margin-bottom: var(--space-4); }
+    .kogod-section:last-child { margin-bottom: 0; }
+    .kogod-section-label { font-size: var(--text-xs); font-weight: 700; color: var(--color-kogod); text-transform: uppercase; letter-spacing: 0.09em; margin-bottom: var(--space-2); display: flex; align-items: center; gap: var(--space-1); }
+    .kogod-tags { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+    .kogod-tag { font-size: var(--text-xs); font-weight: 500; padding: var(--space-1) var(--space-2); border-radius: var(--radius-sm); background: color-mix(in oklch, var(--color-kogod) 10%, var(--color-surface)); border: 1px solid var(--color-kogod-border); color: var(--color-kogod); }
+    [data-theme="dark"] .kogod-tag { background: color-mix(in oklch, var(--color-kogod) 16%, var(--color-surface)); }
+    .kogod-tip { font-size: var(--text-xs); color: var(--color-text-muted); line-height: 1.6; background: var(--color-surface); border-radius: var(--radius-md); padding: var(--space-3); border-left: 3px solid var(--color-kogod); margin-top: var(--space-2); }
+
+    /* Pivot panel */
+    .pivot-panel { background: var(--color-pivot-light); border-radius: var(--radius-lg); padding: var(--space-4); }
+    .pivot-panel-header { display: flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-3); }
+    .pivot-panel-title { font-family: var(--font-display); font-weight: 700; font-size: var(--text-sm); color: var(--color-pivot); }
+    .pivot-section { margin-bottom: var(--space-4); }
+    .pivot-section:last-child { margin-bottom: 0; }
+    .pivot-section-label { font-size: var(--text-xs); font-weight: 700; color: var(--color-pivot); text-transform: uppercase; letter-spacing: 0.09em; margin-bottom: var(--space-2); }
+    .pivot-tags { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+    .pivot-tag { font-size: var(--text-xs); font-weight: 500; padding: var(--space-1) var(--space-2); border-radius: var(--radius-sm); background: rgba(26,71,49,0.08); border: 1px solid var(--color-pivot-border); color: var(--color-pivot); }
+    [data-theme="dark"] .pivot-tag { background: color-mix(in oklch, var(--color-pivot) 16%, var(--color-surface)); color: var(--color-pivot); }
+    .pivot-tip { font-size: var(--text-xs); color: var(--color-text-muted); line-height: 1.65; background: var(--color-surface); border-radius: var(--radius-md); padding: var(--space-3); border-left: 3px solid var(--color-pivot); }
+    .pivot-steps { list-style: none; display: flex; flex-direction: column; gap: var(--space-2); margin-top: var(--space-2); }
+    .pivot-step { display: flex; gap: var(--space-3); align-items: flex-start; font-size: var(--text-xs); color: var(--color-text-muted); line-height: 1.5; }
+    .pivot-step-num { width: 20px; height: 20px; border-radius: 50%; background: var(--color-pivot); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    [data-theme="dark"] .pivot-step-num { color: var(--color-text-inverse); }
+
+    /* Empty state */
+    .empty-state { text-align: center; padding: var(--space-20) var(--space-8); display: none; }
+    .empty-state.visible { display: block; }
+    .empty-icon { font-size: 3rem; margin-bottom: var(--space-4); }
+    .empty-title { font-family: var(--font-display); font-weight: 700; font-size: var(--text-lg); color: var(--color-text); margin-bottom: var(--space-2); }
+    .empty-subtitle { font-size: var(--text-sm); color: var(--color-text-muted); }
+
+    /* Footer */
+    .site-footer { background: var(--color-surface); border-top: 1px solid var(--color-border); padding: var(--space-8) var(--space-6); text-align: center; }
+    .footer-inner { max-width: var(--content-default); margin: 0 auto; }
+    .footer-text { font-size: var(--text-xs); color: var(--color-text-faint); line-height: 1.7; }
+    .footer-text a { color: var(--color-primary); text-decoration: none; }
+    .footer-text a:hover { text-decoration: underline; }
+
+    /* Responsive and SharePoint embed support */
+    @media (max-width: 1024px) {
+      .header-inner,
+      .legend-inner,
+      .controls-inner,
+      .main,
+      .footer-inner { max-width: 100%; }
+      .controls-inner { align-items: stretch; }
+      .filter-group { width: 100%; }
+      .sort-wrap { margin-left: 0; }
+    }
+    @media (max-width: 768px) {
+      .header-inner { flex-wrap: wrap; justify-content: center; text-align: center; }
+      .cards-grid { grid-template-columns: 1fr; gap: var(--space-4); }
+      .hero { padding-inline: var(--space-4); }
+      .hero-content { max-width: 100%; }
+      .hero-kogod-note { display: block; }
+      .hero-stats { gap: var(--space-4); }
+      .hero-stat { min-width: 44%; }
+      .controls-bar,
+      .legend-bar,
+      .main,
+      .site-footer { padding-left: var(--space-4); padding-right: var(--space-4); }
+      .controls-inner { flex-direction: column; align-items: stretch; }
+      .filter-group { overflow-x: visible; flex-wrap: wrap; padding-bottom: var(--space-1); }
+      .filter-label { align-self: center; }
+      .filter-btn { flex: 0 0 auto; }
+      .search-wrap,
+      .sort-wrap,
+      .sort-select { width: 100%; max-width: 100%; }
+      .sort-wrap { justify-content: space-between; }
+      .detail-grid { grid-template-columns: 1fr; }
+      .legend-inner { flex-direction: column; align-items: flex-start; gap: var(--space-2); }
+      .legend-items { gap: var(--space-3); }
+      .tab-buttons { flex-wrap: wrap; overflow-x: visible; }
+      .tab-btn { flex: 1 0 33%; min-width: 112px; }
+    }
+    @media (max-width: 560px) {
+      .header-inner { padding: var(--space-3) var(--space-4); }
+      .kogod-badge { white-space: normal; }
+      .logo-img { width: min(220px, 76vw); }
+      .hero-stat { min-width: 45%; }
+      .salary-header { align-items: flex-start; flex-direction: column; gap: var(--space-1); }
+      .salary-row { grid-template-columns: 82px 1fr 72px; gap: var(--space-2); }
+      .card-header,
+      .card-body,
+      .tab-panels.open { padding-left: var(--space-4); padding-right: var(--space-4); }
+      .card-top { flex-direction: column; }
+      .role-item { align-items: flex-start; }
+      .empty-state { padding: var(--space-12) var(--space-4); }
+    }
+    @media (max-width: 390px) {
+      .hero-stat { min-width: 100%; }
+      .salary-row { grid-template-columns: 1fr; gap: var(--space-1); }
+      .salary-amount { text-align: left; }
+      .tab-btn { min-width: 104px; }
+    }
+
+    
+.strengths-wrap{display:flex;flex-wrap:wrap;gap:var(--space-2);margin-bottom:var(--space-4)}
+.strength-tag{font-size:var(--text-xs);font-weight:600;padding:var(--space-1) var(--space-2);border-radius:var(--radius-full);background:color-mix(in oklch,var(--color-accent) 20%,var(--color-surface));color:var(--color-text);border:1px solid color-mix(in oklch,var(--color-accent) 40%,var(--color-border))}
+.cs-tag-executing{background:var(--color-cs-executing-light);color:var(--color-cs-executing);border:1px solid var(--color-cs-executing-border)}
+.cs-tag-influencing{background:var(--color-cs-influencing-light);color:var(--color-cs-influencing);border:1px solid var(--color-cs-influencing-border)}
+.cs-tag-relationship{background:var(--color-cs-relationship-light);color:var(--color-cs-relationship);border:1px solid var(--color-cs-relationship-border)}
+.cs-tag-strategic{background:var(--color-cs-strategic-light);color:var(--color-cs-strategic);border:1px solid var(--color-cs-strategic-border)}
+.cs-domain-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:var(--space-1);display:block}
+.source-note{font-size:var(--text-xs);color:var(--color-text-muted);line-height:1.55;margin-top:var(--space-3);padding-top:var(--space-3);border-top:1px solid var(--color-divider)}
+@keyframes salaryPulse {
+      0% { background-color: var(--color-accent-highlight); }
+      100% { background-color: transparent; }
+    }
+    .card.sort-highlight { animation: salaryPulse 0.6s ease; }
+  
+    :root, [data-theme="light"] {
+      --color-primary: #004fa2;
+      --color-primary-hover: #182449;
+      --color-primary-active: #00a38d;
+      --color-primary-light: #e2eefb;
+      --color-pivot: #004fa2;
+      --color-pivot-light: #e2eefb;
+      --color-pivot-border: #00a38d;
+      --color-accent: #00a38d;
+      --color-accent-hover: #00a38d;
+    }
+    [data-theme="dark"] {
+      --color-primary: #00a38d;
+      --color-primary-hover: #e2eefb;
+      --color-primary-active: #004fa2;
+      --color-primary-light: #132a50;
+      --color-pivot: #00a38d;
+      --color-pivot-light: #132a50;
+      --color-pivot-border: #00a38d;
+    }
+    .hero { background: linear-gradient(135deg, #004fa2 0%, #182449 62%, #00a38d 100%); }
+    .hero { padding:clamp(var(--space-4), 3vw, var(--space-6)) var(--space-6); }
+    .hero h1 { font-size:clamp(1.75rem, 4vw, 2.75rem); margin-bottom:var(--space-2); }
+    .hero p { margin-bottom:var(--space-2); }
+    .hero-kogod-note { margin-bottom:0; padding:var(--space-2) var(--space-3); max-width:66ch; }
+    .hero-use-note { display:inline; margin:0; font-weight:400; }
+    .industry-logo-lockup { display:flex; align-items:center; gap:var(--space-2); flex-wrap:wrap; justify-content:flex-end; }
+    .card-top { align-items:center; justify-content:flex-start; gap:var(--space-2); margin-bottom:var(--space-2); }
+    .depth-badge { display:inline-flex; align-items:center; border:1px solid color-mix(in oklch, var(--color-primary) 38%, var(--color-border)); border-radius:var(--radius-full); padding:var(--space-1) var(--space-2); font-size:var(--text-xs); font-weight:800; color:var(--color-primary); background:color-mix(in oklch, var(--color-primary) 8%, var(--color-surface)); text-transform:uppercase; letter-spacing:.04em; }
+    .credential-note { max-width:var(--content-default); margin:0 auto; padding:var(--space-4) var(--space-6); background:var(--color-surface); border-bottom:1px solid var(--color-border); }
+    .credential-note-inner { border:1px solid color-mix(in oklch, var(--color-primary) 32%, var(--color-border)); border-left:4px solid var(--color-primary); border-radius:var(--radius-lg); padding:var(--space-4); background:color-mix(in oklch, var(--color-primary) 7%, var(--color-surface)); }
+    .credential-note-title { font-family:var(--font-display); font-weight:800; font-size:var(--text-sm); color:var(--color-text); margin-bottom:var(--space-2); }
+    .credential-note-text { font-size:var(--text-xs); color:var(--color-text-muted); line-height:1.6; }
+    .credential-note-text strong { color:var(--color-primary); }
+    .credential-note-links { display:flex; flex-wrap:wrap; gap:var(--space-2); margin-top:var(--space-3); }
+    .credential-note-links a { font-size:var(--text-xs); font-weight:700; color:var(--color-primary); text-decoration:none; }
+    .credential-note-links a:hover { text-decoration:underline; }
+    .card-body .salary-section { margin-top:var(--space-4); padding:var(--space-3); border:1px solid var(--color-divider); border-radius:var(--radius-md); background:color-mix(in oklch, var(--color-primary) 6%, var(--color-surface)); }
+    .card-body .salary-total { font-size:var(--text-base); }
+    .card-body .salary-label { letter-spacing:0.06em; }
+    .card-body .salary-row { grid-template-columns:86px 1fr 72px; }
+    .tab-btn.active.tab-context { color:var(--color-primary); border-bottom:2px solid var(--color-primary); }
+    .sources-list { margin-top:var(--space-3); display:flex; flex-wrap:wrap; gap:var(--space-2); justify-content:center; }
+    .sources-list a { font-size:var(--text-xs); color:var(--color-primary); text-decoration:none; border-bottom:1px solid transparent; }
+    .sources-list a:hover { border-bottom-color:currentColor; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="Kogod School of Business">
+        <img class="logo-img" src="kogod-logo-fullcolor.png" alt="Kogod School of Business" />
+      </a>
+      <div class="industry-logo-lockup">
+        <span class="kogod-badge">Technology Career Explorer</span>
+      </div>
+      <div class="header-actions">
+        <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><circle cx="6" cy="6" r="6"/></svg>
+        Explore roles by function
+      </div>
+      <h1>The <em>Technology</em><br> <span>Career Explorer</span></h1>
+      <p>Explore the business side of tech: product, analytics, AI governance, cybersecurity risk, implementation, sales, program operations, and tech investing.</p>
+      <div class="hero-kogod-note">Pick 2-3 cards that match work you would actually want to try. <span class="hero-use-note">Use CliftonStrengths for reflection, not as a rule.</span></div>
+    </div>
+  </section>
+
+  <div class="legend-bar">
+    <div class="legend-inner">
+      <span class="legend-title">Each card includes:</span>
+      <div class="legend-items">
+        <div class="legend-item"><div class="legend-dot" style="background: var(--color-primary);"></div> Function overview first</div>
+        <div class="legend-item"><div class="legend-dot" style="background: var(--color-primary);"></div> Work context</div>
+        <div class="legend-item"><div class="legend-dot" style="background: var(--color-kogod);"></div> Kogod Prep</div>
+        <div class="legend-item"><div class="legend-dot" style="background: var(--color-pivot);"></div> Grad-student pivot guide</div>
+        <div class="legend-item"><div class="legend-dot" style="background: var(--color-accent);"></div> Directional pay context</div>
+      </div>
+    </div>
+  </div>
+
+  <section class="credential-note" aria-label="Technology Depth Snapshot">
+    <div class="credential-note-inner">
+      <div class="credential-note-title">Technology Depth Snapshot</div>
+      <p class="credential-note-text"><strong>Most Kogod-friendly tech roles are business translation roles:</strong> students do not need to become software engineers to work in technology. Use the labels on each card to separate business-facing roles from more technical or hybrid paths, then build enough technical fluency to ask good questions, read dashboards, understand systems, and explain tradeoffs to decision-makers.</p>
+      <div class="credential-note-links"><a href="https://careers.kogod.american.edu/channels/technology/" target="_blank" rel="noopener noreferrer">Kogod Technology channel</a></div>
+    </div>
+  </section>
+
+  
+
+  <div class="controls-bar">
+    <div class="controls-inner">
+      <div class="search-wrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="search" class="search-input" id="searchInput" placeholder="Search functions, skills, courses..." aria-label="Search" autocomplete="off" />
+      </div>
+      <div class="filter-group"><span class="filter-label">Filter</span><button class="filter-btn active" data-filter="all">All</button><button class="filter-btn" data-filter="product">Product</button><button class="filter-btn" data-filter="data">Data</button><button class="filter-btn" data-filter="strategy">Strategy</button><button class="filter-btn" data-filter="risk">Risk</button><button class="filter-btn" data-filter="growth">Growth</button><button class="filter-btn" data-filter="investment">Investment</button></div>
+      <div class="sort-wrap">
+        <label class="filter-label" for="sortSelect">Sort:</label>
+        <select class="sort-select" id="sortSelect">
+          <option value="default">Recommended</option>
+          <option value="salary-high">Pay: high to low</option>
+          <option value="salary-low">Pay: low to high</option>
+          <option value="name-az">Name A-Z</option>
+          <option value="name-za">Name Z-A</option>
+        </select>
+      </div>
+      <span class="results-count" id="resultsCount" aria-live="polite"></span>
+    </div>
+  </div>
+
+  <main class="main" id="mainContent">
+    <div class="cards-grid" id="cardsGrid">
+<article class="card" data-category="product" data-name="Product Management" data-salary-mid="150000">
+  <div class="card-header">
+    <div class="card-top">
+      <span class="card-category-badge">Product</span>
+      <span class="depth-badge">Hybrid</span>
+    </div>
+    <h2 class="card-title">Product Management</h2>
+    <p class="card-subtitle">Define customer problems, prioritize roadmaps, and coordinate business, design, and engineering partners.</p>
+    <p class="best-for"><strong>Best for students who...</strong> like customer problems, tradeoffs, stakeholder management, and turning ambiguity into product decisions.</p>
+  </div>
+  <div class="card-body">
+    <p class="card-description">These roles help organizations make better technology decisions. Early-career work usually includes research, analysis, stakeholder updates, process support, and turning ambiguous requests into usable recommendations.</p>
+  </div>
+  <div class="card-footer">
+    <div class="tab-buttons">
+      <button class="tab-btn tab-details" data-tab="details" data-card="product-management">Role Snapshot</button>
+      <button class="tab-btn tab-context" data-tab="context" data-card="product-management">Work Context</button>
+      <button class="tab-btn tab-kogod" data-tab="kogod" data-card="product-management"><div class="tab-dot" style="background:var(--color-kogod)"></div>Kogod Prep</button>
+      <button class="tab-btn tab-pivot" data-tab="pivot" data-card="product-management"><div class="tab-dot" style="background:var(--color-pivot)"></div>Pivot Guide</button>
+    </div>
+    <div class="tab-panels" id="panels-product-management">
+      <div class="tab-panel" id="details-product-management">
+        <div class="section-title">Core Skills</div>
+        <div class="skills-wrap"><span class="skill-tag">Roadmapping</span><span class="skill-tag">User research</span><span class="skill-tag">Prioritization</span><span class="skill-tag">Product metrics</span><span class="skill-tag">Stakeholder management</span></div>
+        <div class="section-title" style="margin-top:var(--space-4); margin-bottom:var(--space-2)">Career Path</div>
+        <div class="roles-list"><div class="role-item">Analyst / Associate -&gt; Senior Analyst -&gt; Manager -&gt; Director -&gt; Product / Data / Technology Leader</div></div>
+        <div class="section-title" style="margin-top:var(--space-4); margin-bottom:var(--space-2)">Entry-Level Titles to Try</div>
+        <div class="skills-wrap"><span class="skill-tag">Associate Product Manager</span><span class="skill-tag">Product Analyst</span><span class="skill-tag">Product Operations Associate</span></div>
+        <div class="section-title" style="margin-top:var(--space-4); margin-bottom:var(--space-2)">Starter Search Terms</div>
+        <div class="skills-wrap"><span class="cert-tag">associate product manager</span><span class="cert-tag">product analyst</span><span class="cert-tag">product operations associate</span><span class="cert-tag">APM program</span></div>
+        
+        
+        <div class="skills-valued-group">
+          <div class="section-title" style="margin-top:var(--space-4)">Strengths that may help</div>
+          <div class="strengths-wrap"><span class="strength-tag cs-tag-strategic">Learner</span><span class="strength-tag cs-tag-strategic">Analytical</span><span class="strength-tag cs-tag-strategic">Futuristic</span></div>
+          <div class="skills-valued-label">Technical</div>
+          <div class="skills-wrap"><span class="skill-tag">Roadmapping</span><span class="skill-tag">User research</span><span class="skill-tag">Prioritization</span><span class="skill-tag">Product metrics</span><span class="skill-tag">Stakeholder management</span></div>
+          <div class="skills-valued-label">Professional</div>
+          <div class="skills-wrap"><span class="skill-tag">Business writing</span><span class="skill-tag">Stakeholder communication</span><span class="skill-tag">Follow-through</span><span class="skill-tag">Curiosity</span></div>
+        </div>
+      </div>
+      <div class="tab-panel" id="context-product-management">
+        <div class="salary-section">
+          <div class="salary-header">
+            <span class="salary-label">Directional pay context</span>
+            <span class="salary-total">$95K-180K <span>not a target</span></span>
+          </div>
+          <div class="salary-levels">
+            <div class="salary-row"><span class="salary-level-name">Early career</span><div class="salary-bar-track"><div class="salary-bar-fill" style="width:38%;background:var(--color-primary);opacity:.65"></div></div><span class="salary-amount">$95K-120K</span></div>
+            <div class="salary-row"><span class="salary-level-name">Experienced</span><div class="salary-bar-track"><div class="salary-bar-fill" style="width:72%;background:var(--color-primary);opacity:.8"></div></div><span class="salary-amount">$135K-180K</span></div>
+          </div>
+        </div>
+        
+        <div class="section-title" style="margin-top:var(--space-4); margin-bottom:var(--space-2)">Work Context</div>
+        <div class="detail-grid" style="margin-top:var(--space-2)">
+          <div class="detail-item"><div class="detail-item-label">Common Backgrounds</div><div class="detail-item-value">Business, Analytics, Operations, Communications</div></div>
+          <div class="detail-item"><div class="detail-item-label">Typical Employers</div><div class="detail-item-value">Corporations, Consulting firms, Nonprofits, Government agencies</div></div>
+          <div class="detail-item"><div class="detail-item-label">Hours / Week</div><div class="detail-item-value">40-55 hrs</div></div>
+          <div class="detail-item"><div class="detail-item-label">Comp Structure</div><div class="detail-item-value">Varies by sector and role level</div></div>
+        </div>
+      </div>
+      <div class="tab-panel" id="kogod-product-management">
+        <div class="kogod-panel">
+          <div class="kogod-panel-header"><span class="kogod-panel-title">How to Prepare at AU + Kogod</span></div>
+          <div class="kogod-section"><div class="kogod-section-label">Key Courses</div><div class="kogod-tags"><span class="kogod-tag">Advisor-approved technology elective</span><span class="kogod-tag">MKTG-767 Research Methods</span><span class="kogod-tag">KSB-613 Strategic Decision Making</span></div></div>
+          <div class="kogod-section"><div class="kogod-section-label">Experiences, Publishing & Networking</div><div class="kogod-tags"><span class="kogod-tag">Product teardown or PRD sample</span><span class="kogod-tag">User interview notes</span><a class="kogod-tag" href="https://careers.kogod.american.edu/" target="_blank" rel="noopener noreferrer">Product/technology alumni conversations</a></div></div>
+          
+          
+          
+          <div class="kogod-section"><div class="kogod-section-label">Key Credentials</div><div class="kogod-tags"><span class="cert-tag">Product or analytics portfolio</span><span class="cert-tag">Dashboard or business case sample</span><span class="cert-tag">Responsible AI or cybersecurity brief</span></div></div>
+          <div class="kogod-tip"><strong>Pro tip:</strong> For a student who only knows they are interested in technology, this is a good function to test through one project, one informational interview, and one targeted resume version.</div>
+        </div>
+      </div>
+      <div class="tab-panel" id="pivot-product-management">
+        <div class="pivot-panel">
+          <div class="pivot-panel-header"><span class="pivot-panel-title">Pivoting Into Product Management</span></div>
+          <div class="pivot-section"><div class="pivot-section-label">Transferable Backgrounds</div><div class="pivot-tags"><span class="pivot-tag">Career changers</span><span class="pivot-tag">Student leadership</span><span class="pivot-tag">Analytics</span><span class="pivot-tag">Client service</span></div></div>
+          <div class="pivot-section"><div class="pivot-section-label">Graduate Pivot Roadmap</div><ul class="pivot-steps"><li class="pivot-step"><span class="pivot-step-num">1</span><span>Translate your past experience into the language of product management.</span></li><li class="pivot-step"><span class="pivot-step-num">2</span><span>Build one small work sample that shows how you think, not just what classes you took.</span></li><li class="pivot-step"><span class="pivot-step-num">3</span><span>Use informational interviews to learn the entry titles employers actually use.</span></li><li class="pivot-step"><span class="pivot-step-num">4</span><span>Apply to analyst, associate, coordinator, and specialist titles rather than only senior-sounding roles.</span></li></ul></div>
+          <div class="pivot-tip">Graduate students can use this path to test fit quickly because the entry work is visible, portfolio-friendly, and connected to multiple next-step roles.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-category="data" data-name="Data Analytics &amp; Applied AI" data-salary-mid="135000">
+  <div class="card-header">
+    <div class="card-top">
+      <span class="card-category-badge">Data</span>
+      <span class="depth-badge">Technical</span>
+    </div>
+    <h2 class="card-title">Data Analytics &amp; Applied AI</h2>
+    <p class="card-subtitle">Use dashboards, analysis, and AI outputs to explain patterns and support business decisions.</p>
+    <p class="best-for"><strong>Best for students who...</strong> like data, business questions, visualization, and translating findings for nontechnical leaders.</p>
+  </div>
+  <div class="card-body">
+    <p class="card-description">These roles help organizations make better technology decisions. Early-career work usually includes research, analysis, stakeholder updates, process support, and turning ambiguous requests into usable recommendations.</p>
+  </div>
+  <div class="card-footer">
+    <div class="tab-buttons">
+      <button class="tab-btn tab-details" data-tab="details" data-card="data-analytics-and-applied-a">Role Snapshot</button>
+      <button class="tab-btn tab-context" data-tab="context" data-card="data-analytics-and-applied-a">Work Context</button>
+      <button class="tab-btn tab-kogod" data-tab="kogod" data-card="data-analytics-and-applied-a"><div class="tab-dot" style="background:var(--color-kogod)"></div>Kogod Prep</button>
+      <button class="tab-btn tab-pivot" data-tab="pivot" data-card="data-analytics-and-applied-a"><div class="tab-dot" style="background:var(--color-pivot)"></div>Pivot Guide</button>
+    </div>
+    <div class="tab-panels" id="panels-data-analytics-and-applied-a">
+      <div class="tab-panel" id="details-data-analytics-and-applied-a">
+        <div class="section-title">Core Skills</div>
+        <div class="skills-wrap"><span class="skill-tag">SQL basics</span><span class="skill-tag">Dashboarding</span><span class="skill-tag">Data interpretation</span><span class="skill-tag">AI literacy</span><span class="skill-tag">Business storytelling</span></div>
+        <div class="section-title" style="margin-top:var(--space-4); margin-bottom:var(--space-2)">Career Path</div>
+        <div class="roles-list"><div class="role-item">Analyst / Associate -&gt; Senior Analyst -&gt; Manager -&gt; Director -&gt; Product / Data / Technology Leader</div></div>
+        <div class="section-title" style="margin-top:var(--space-4); margin-bottom:var(--space-2)">Entry-Level Titles to Try</div>
+        <div class="skills-wrap"><span class="skill-tag">Analyst</span><span class="skill-tag">Associate</span><span class="skill-tag">Coordinator</span><span class="skill-tag">Specialist</span><span class="skill-tag">Rotational Program</span></div>
+        <div class="section-title" style="margin-top:var(--space-4); margin-bottom:var(--space-2)">Starter Search Terms</div>
+        <div class="skills-wrap"><span class="cert-tag">Data Analytics &amp; Applied AI</span><span class="cert-tag">Technology analyst</span><span class="cert-tag">Technology associate</span><span class="cert-tag">Technology coordinator</span></div>
+        
+        
+        <div class="skills-valued-group">
+          <div class="section-title" style="margin-top:var(--space-4)">Strengths that may help</div>
+          <div class="strengths-wrap"><span class="strength-tag cs-tag-strategic">Learner</span><span class="strength-tag cs-tag-strategic">Analytical</span><span class="strength-tag cs-tag-strategic">Futuristic</span></div>
+          <div class="skills-valued-label">Technical</div>
+          <div class="skills-wrap"><span class="skill-tag">SQL basics</span><span class="skill-tag">Dashboarding</span><span class="skill-tag">Data interpretation</span><span class="skill-tag">AI literacy</span><span class="skill-tag">Business storytelling</span></div>
+          <div class="skills-valued-label">Professional</div>
+          <div class="skills-wrap"><span class="skill-tag">Business writing</span><span class="skill-tag">Stakeholder communication</span><span class="skill-tag">Follow-through</span><span class="skill-tag">Curiosity</span></div>
+        </div>
+      </div>
+      <div class="tab-panel" id="context-data-analytics-and-applied-a">
+        <div class="salary-section">
+          <div class="salary-header">
+            <span class="salary-label">Directional pay context</span>
+            <span class="salary-total">$85K-160K <span>not a target</span></span>
+          </div>
+          <div class="salary-levels">
+            <div class="salary-row"><span class="salary-level-name">Early career</span><div class="salary-bar-track"><div class="salary-bar-fill" style="width:38%;background:var(--color-primary);opacity:.65"></div></div><span class="salary-amount">$85K-110K</span></div>
+            <div class="salary-row"><span class="salary-level-name">Experienced</span><div class="salary-bar-track"><div class="salary-bar-fill" style="width:72%;background:var(--color-primary);opacity:.8"></div></div><span class="salary-amount">$120K-160K</span></div>
+          </div>
+        </div>
+        
+        <div class="section-title" style="margin-top:var(--space-4); margin-bottom:var(--space-2)">Work Context</div>
+        <div class="detail-grid" style="margin-top:var(--space-2)">
+          <div class="detail-item"><div class="detail-item-label">Common Backgrounds</div><div class="detail-item-value">Business, Analytics, Operations, Communications</div></div>
+          <div class="detail-item"><div class="detail-item-label">Typical Employers</div><div class="detail-item-value">Corporations, Consulting firms, Nonprofits, Government agencies</div></div>
+          <div class="detail-item"><div class="detail-item-label">Hours / Week</div><div class="detail-item-value">40-55 hrs</div></div>
+          <div class="detail-item"><div class="detail-item-label">Comp Structure</div><div class="detail-item-value">Varies by sector and role level</div></div>
+        </div>
+      </div>
+      <div class="tab-panel" id="kogod-data-analytics-and-applied-a">
+        <div class="kogod-panel">
+          <div class="kogod-panel-header"><span class="kogod-panel-title">How to Prepare at AU + Kogod</span></div>
+          <div class="kogod-section"><div class="kogod-section-label">Key Courses</div><div class="kogod-tags"><span class="kogod-tag">ITEC-620 Business Insights Through Analytics</span><span class="kogod-tag">ITEC-610 Applied Managerial Statistics</span><span class="kogod-tag">Analytics/STEM track coursework</span></div></div>
+          <div class="kogod-section"><div class="kogod-section-label">Experiences, Publishing & Networking</div><div class="kogod-tags"><span class="kogod-tag">SQL dashboard portfolio</span><span class="kogod-tag">Predictive model or analytics notebook</span><a class="kogod-tag" href="https://american.campuslabs.com/engage/organizations?query=Analytics%20Club" target="_blank" rel="noopener noreferrer">Analytics Club project</a></div></div>
+          
+          
+          
+          <div class="kogod-section"><div class="kogod-section-label">Key Credentials</div><div class="kogod-tags"><span class="cert-tag">Product or analytics portfolio</span><span class="cert-tag">Dashboard or business case sample</span><span class="cert-tag">Responsible AI or cybersecurity brief</span></div></div>
+          <div class="kogod-tip"><strong>Pro tip:</strong> For a student who only knows they are interested in technology, this is a good function to test through one project, one informational interview, and one targeted resume version.</div>
+        </div>
+      </div>
+      <div class="tab-panel" id="pivot-data-analytics-and-applied-a">
+        <div class="pivot-panel">
+          <div class="pivot-panel-header"><span class="pivot-panel-title">Pivoting Into Data Analytics &amp; Applied AI</span></div>
+          <div class="pivot-section"><div class="pivot-section-label">Transferable Backgrounds</div><div class="pivot-tags"><span class="pivot-tag">Career changers</span><span class="pivot-tag">Student leadership</span><span class="pivot-tag">Analytics</span><span class="pivot-tag">Client service</span></div></div>
+          <div class="pivot-section"><div class="pivot-section-label">Graduate Pivot Roadmap</div><ul class="pivot-steps"><li class="pivot-step"><span class="pivot-step-num">1</span><span>Translate your past experience into the language of data analytics &amp; applied ai.</span></li><li class="pivot-step"><span class="pivot-step-num">2</span><span>Build one small work sample that shows how you think, not just what classes you took.</span></li><li class="pivot-step"><span class="pivot-step-num">3</span><span>Use informational interviews to learn the entry titles employers actually use.</span></li><li class="pivot-step"><span class="pivot-step-num">4</span><span>Apply to analyst, associate, coordinator, and specialist titles rather than only senior-sounding roles.</span></li></ul></div>
+          <div class="pivot-tip">Graduate students can use this path to test fit quickly because the entry work is visible, portfolio-friendly, and connected to multiple next-step roles.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-category="strategy" data-name="Technology Strategy &amp; Digital Transformation" data-salary-mid="140000">
+  <div class="card-header">
+    <div class="card-top">
+      <span class="card-category-badge">Strategy</span>
+      <span class="depth-badge">Business-facing</span>
+    </div>
+    <h2 class="card-title">Technology Strategy &amp; Digital Transformation</h2>
+    <p class="card-subtitle">Help organizations choose, adopt, and govern technologies that change how work gets done.</p>
+    <p class="best-for"><strong>Best for students who...</strong> like business strategy, systems, change management, and technology-enabled operating models.</p>
+  </div>
+  <div class="card-body">
+    <p class="card-description">These roles help organizations make better technology decisions. Early-career work usually includes research, analysis, stakeholder updates, process support, and turning ambiguous requests into usable recommendations.</p>
+  </div>
+  <div class="card-footer">
+    <div class="tab-buttons">
+      <button class="tab-btn tab-details" data-tab="details" data-card="technology-strategy-and-digi">Role Snapshot</button>
+      <button class="tab-btn tab-context" data-tab="context" data-card="technology-strategy-and-digi">Work Context</button>
+      <button class="tab-btn tab-kogod" data-tab="kogod" data-card="technology-strategy-and-digi"><div class="tab-dot" style="background:var(--color-kogod)"></div>Kogod Prep</button>
+      <button class="tab-btn tab-pivot" data-tab="pivot" data-card="technology-strategy-and-digi"><div class="tab-dot" style="background:var(--color-pivot)"></div>Pivot Guide</button>
+    </div>
+    <div class="tab-panels" id="panels-technology-strategy-and-digi">
+      <div class="tab-panel" id="details-technology-strategy-and-digi">
+        <div class="section-title">Core Skills</div>
+        <div class="skills-wrap"><span class="skill-tag">Tech strategy</span><span class="skill-tag">Process analysis</span><span class="skill-tag">Change management</span><span class="skill-tag">Vendor assessment</span><span class="skill-tag">Business cases</span></div>
+        <div class="section-title" style="margin-top:var(--space-4); margin-bottom:var(--space-2)">Career Path</div>
+        <div class="roles-list"><div class="role-item">Analyst / Associate -&gt; Senior Analyst -&gt; Manager -&gt; Director -&gt; Product / Data / Technology Leader</div></div>
+        <div class="section-title" style="margin-top:var(--space-4); margin-bottom:var(--space-2)">Entry-Level Titles to Try</div>
+        <div class="skills-wrap"><span class="skill-tag">Digital Transformation Analyst</span><span class="skill-tag">Technology Strategy Analyst</span><span class="skill-tag">Business Analyst</span></div>
+        <div class="section-title" style="margin-top:var(--space-4); margin-bottom:var(--space-2)">Starter Search Terms</div>
+        <div class="skills-wrap"><span class="cert-tag">digital transformation analyst</span><span class="cert-tag">technology strategy analyst</span><span class="cert-tag">business analyst technology</span><span class="cert-tag">IT strategy consultant</span></div>
+        
+        
+        <div class="skills-valued-group">
+          <div class="section-title" style="margin-top:var(--space-4)">Strengths that may help</div>
+          <div class="strengths-wrap"><span class="strength-tag cs-tag-strategic">Learner</span><span class="strength-tag cs-tag-strategic">Analytical</span><span class="strength-tag cs-tag-strategic">Futuristic</span></div>
+          <div class="skills-valued-label">Technical</div>
+          <div class="skills-wrap"><span class="skill-tag">Tech strategy</span><span class="skill-tag">Process analysis</span><span class="skill-tag">Change management</span><span class="skill-tag">Vendor assessment</span><span class="skill-tag">Business cases</span></div>
+          <div class="skills-valued-label">Professional</div>
+          <div class="skills-wrap"><span class="skill-tag">Business writing</span><span class="skill-tag">Stakeholder communication</span><span class="skill-tag">Follow-through</span><span class="skill-tag">Curiosity</span></div>
+        </div>
+      </div>
+      <div class="tab-panel" id="context-technology-strategy-and-digi">
+        <div class="salary-section">
+          <div class="salary-header">
+            <span class="salary-label">Directional pay context</span>
+            <span class="salary-total">$90K-170K <span>not a target</span></span>
+          </div>
+          <div class="salary-levels">
+            <div class="salary-row"><span class="salary-level-name">Early career</span><div class="salary-bar-track"><div class="salary-bar-fill" style="width:38%;background:var(--color-primary);opacity:.65"></div></div><span class="salary-amount">$90K-115K</span></div>
+            <div class="salary-row"><span class="salary-level-name">Experienced</span><div class="salary-bar-track"><div class="salary-bar-fill" style="width:72%;background:var(--color-primary);opacity:.8"></div></div><span class="salary-amount">$130K-170K</span></div>
+          </div>
+        </div>
+        
+        <div class="section-title" style="margin-top:var(--space-4); margin-bottom:var(--space-2)">Work Context</div>
+        <div class="detail-grid" style="margin-top:var(--space-2)">
+          <div class="detail-item"><div class="detail-item-label">Common Backgrounds</div><div class="detail-item-value">Business, Analytics, Operations, Communications</div></div>
+          <div class="detail-item"><div class="detail-item-label">Typical Employers</div><div class="detail-item-value">Corporations, Consulting firms, Nonprofits, Government agencies</div></div>
+          <div class="detail-item"><div class="detail-item-label">Hours / Week</div><div class="detail-item-value">40-55 hrs</div></div>
+          <div class="detail-item"><div class="detail-item-label">Comp Structure</div><div class="detail-item-value">Varies by sector and role level</div></div>
+        </div>
+      </div>
+      <div class="tab-panel" id="kogod-technology-strategy-and-digi">
+        <div class="kogod-panel">
+          <div class="kogod-panel-header"><span class="kogod-panel-title">How to Prepare at AU + Kogod</span></div>
+          <div class="kogod-section"><div class="kogod-section-label">Key Courses</div><div class="kogod-tags"><span class="kogod-tag">Advisor-approved technology elective</span><span class="kogod-tag">ITEC-620 Business Insights Through Analytics</span><span class="kogod-tag">ITEC-630 Business Process Analysis</span></div></div>
+          <div class="kogod-section"><div class="kogod-section-label">Experiences, Publishing & Networking</div><div class="kogod-tags"><span class="kogod-tag">AI use-case brief</span><a class="kogod-tag" href="https://careers.kogod.american.edu/channels/technology/" target="_blank" rel="noopener noreferrer">Digital transformation case memo</a><a class="kogod-tag" href="https://careers.kogod.american.edu/channels/technology/" target="_blank" rel="noopener noreferrer">Technology career channel resources</a></div></div>
+          
+          
+          
+          <div class="kogod-section"><div class="kogod-section-label">Key Credentials</div><div class="kogod-tags"><span class="cert-tag">Product or analytics portfolio</span><span class="cert-tag">Dashboard or business case sample</span><span class="cert-tag">Responsible AI or cybersecurity brief</span></div></div>
+          <div class="kogod-tip"><strong>Pro tip:</strong> For a student who only knows they are interested in technology, this is a good function to test through one project, one informational interview, and one targeted resume version.</div>
+        </div>
+      </div>
+      <div class="tab-panel" id="pivot-technology-strategy-and-digi">
+        <div class="pivot-panel">
+          <div class="pivot-panel-header"><span class="pivot-panel-title">Pivoting Into Technology Strategy &amp; Digital Transformation</span></div>
+          <div class="pivot-section"><div class="pivot-section-label">Transferable Backgrounds</div><div class="pivot-tags"><span class="pivot-tag">Career changers</span><span class="pivot-tag">Student leadership</span><span class="pivot-tag">Analytics</span><span class="pivot-tag">Client service</span></div></div>
+          <div class="pivot-section"><div class="pivot-section-label">Graduate Pivot Roadmap</div><ul class="pivot-steps"><li class="pivot-step"><span class="pivot-step-num">1</span><span>Translate your past experience into the language of technology strategy &amp; digital transformation.</span></li><li class="pivot-step"><span class="pivot-step-num">2</span><span>Build one small work sample that shows how you think, not just what classes you took.</span></li><li class="pivot-step"><span class="pivot-step-num">3</span><span>Use informational interviews to learn the entry titles employers actually use.</span></li><li class="pivot-step"><span class="pivot-step-num">4</span><span>Apply to analyst, associate, coordinator, and specialist titles rather than only senior-sounding roles.</span></li></ul></div>
+          <div class="pivot-tip">Graduate students can use this path to test fit quickly because the entry work is visible, portfolio-friendly, and connected to multiple next-step roles.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-category="risk" data-name="Cybersecurity Business &amp; Risk" data-salary-mid="135000">
+  <div class="card-header">
+    <div class="card-top">
+      <span class="card-category-badge">Risk</span>
+      <span class="depth-badge">Hybrid</span>
+    </div>
+    <h2 class="card-title">Cybersecurity Business &amp; Risk</h2>
+    <p class="card-subtitle">Translate cybersecurity risk into governance, compliance, investment, and executive decisions.</p>
+    <p class="best-for"><strong>Best for students who...</strong> like risk, controls, policy, stakeholder education, and protecting organizations.</p>
+  </div>
+  <div class="card-body">
+    <p class="card-description">These roles help organizations make better technology decisions. Early-career work usually includes research, analysis, stakeholder updates, process support, and turning ambiguous requests into usable recommendations.</p>
+  </div>
+  <div class="card-footer">
+    <div class="tab-buttons">
+      <button class="tab-btn tab-details" data-tab="details" data-card="cybersecurity-business-and-r">Role Snapshot</button>
+      <button class="tab-btn tab-context" data-tab="context" data-card="cybersecurity-business-and-r">Work Context</button>
+      <button class="tab-btn tab-kogod" data-tab="kogod" data-card="cybersecurity-business-and-r"><div class="tab-dot" style="background:var(--color-kogod)"></div>Kogod Prep</button>
+      <button class="tab-btn tab-pivot" data-tab="pivot" data-card="cybersecurity-business-and-r"><div class="tab-dot" style="background:var(--color-pivot)"></div>Pivot Guide</button>
+    </div>
+    <div class="tab-panels" id="panels-cybersecurity-business-and-r">
+      <div class="tab-panel" id="details-cybersecurity-business-and-r">
+        <div class="section-title">Core Skills</div>
+        <div class="skills-wrap"><span class="skill-tag">Risk assessment</span><span class="skill-tag">Security governance</span><span class="skill-tag">Compliance</span><span class="skill-tag">Incident basics</span><span class="skill-tag">Executive communication</span></div>
+        <div class="section-title" style="margin-top:var(--space-4); margin-bottom:var(--space-2)">Career Path</div>
+        <div class="roles-list"><div class="role-item">Analyst / Associate -&gt; Senior Analyst -&gt; Manager -&gt; Director -&gt; Product / Data / Technology Leader</div></div>
+        <div class="section-title" style="margin-top:var(--space-4); margin-bottom:var(--space-2)">Entry-Level Titles to Try</div>
+        <div class="skills-wrap"><span class="skill-tag">Cybersecurity Risk Analyst</span><span class="skill-tag">GRC Analyst</span><span class="skill-tag">Technology Risk Associate</span></div>
+        <div class="section-title" style="margin-top:var(--space-4); margin-bottom:var(--space-2)">Starter Search Terms</div>
+        <div class="skills-wrap"><span class="cert-tag">cybersecurity risk analyst</span><span class="cert-tag">GRC analyst</span><span class="cert-tag">technology risk associate</span><span class="cert-tag">security governance analyst</span></div>
+        
+        
+        <div class="skills-valued-group">
+          <div class="section-title" style="margin-top:var(--space-4)">Strengths that may help</div>
+          <div class="strengths-wrap"><span class="strength-tag cs-tag-strategic">Learner</span><span class="strength-tag cs-tag-strategic">Analytical</span><span class="strength-tag cs-tag-strategic">Futuristic</span></div>
+          <div class="skills-valued-label">Technical</div>
+          <div class="skills-wrap"><span class="skill-tag">Risk assessment</span><span class="skill-tag">Security governance</span><span class="skill-tag">Compliance</span><span class="skill-tag">Incident basics</span><span class="skill-tag">Executive communication</span></div>
+          <div class="skills-valued-label">Professional</div>
+          <div class="skills-wrap"><span class="skill-tag">Business writing</span><span class="skill-tag">Stakeholder communication</span><span class="skill-tag">Follow-through</span><span class="skill-tag">Curiosity</span></div>
+        </div>
+      </div>
+      <div class="tab-panel" id="context-cybersecurity-business-and-r">
+        <div class="salary-section">
+          <div class="salary-header">
+            <span class="salary-label">Directional pay context</span>
+            <span class="salary-total">$85K-165K <span>not a target</span></span>
+          </div>
+          <div class="salary-levels">
+            <div class="salary-row"><span class="salary-level-name">Early career</span><div class="salary-bar-track"><div class="salary-bar-fill" style="width:38%;background:var(--color-primary);opacity:.65"></div></div><span class="salary-amount">$85K-110K</span></div>
+            <div class="salary-row"><span class="salary-level-name">Experienced</span><div class="salary-bar-track"><div class="salary-bar-fill" style="width:72%;background:var(--color-primary);opacity:.8"></div></div><span class="salary-amount">$120K-165K</span></div>
+          </div>
+        </div>
+        
+        <div class="section-title" style="margin-top:var(--space-4); margin-bottom:var(--space-2)">Work Context</div>
+        <div class="detail-grid" style="margin-top:var(--space-2)">
+          <div class="detail-item"><div class="detail-item-label">Common Backgrounds</div><div class="detail-item-value">Business, Analytics, Operations, Communications</div></div>
+          <div class="detail-item"><div class="detail-item-label">Typical Employers</div><div class="detail-item-value">Corporations, Consulting firms, Nonprofits, Government agencies</div></div>
+          <div class="detail-item"><div class="detail-item-label">Hours / Week</div><div class="detail-item-value">40-55 hrs</div></div>
+          <div class="detail-item"><div class="detail-item-label">Comp Structure</div><div class="detail-item-value">Varies by sector and role level</div></div>
+        </div>
+      </div>
+      <div class="tab-panel" id="kogod-cybersecurity-business-and-r">
+        <div class="kogod-panel">
+          <div class="kogod-panel-header"><span class="kogod-panel-title">How to Prepare at AU + Kogod</span></div>
+          <div class="kogod-section"><div class="kogod-section-label">Key Courses</div><div class="kogod-tags"><span class="kogod-tag">Advisor-approved technology elective</span><span class="kogod-tag">ITEC-630 Business Process Analysis</span><span class="kogod-tag">Risk and controls coursework when available</span></div></div>
+          <div class="kogod-section"><div class="kogod-section-label">Experiences, Publishing & Networking</div><div class="kogod-tags"><span class="kogod-tag">Cyber risk briefing memo</span><span class="kogod-tag">Controls map sample</span><a class="kogod-tag" href="https://careers.kogod.american.edu/channels/technology/" target="_blank" rel="noopener noreferrer">Technology risk employer search</a></div></div>
+          
+          
+          
+          <div class="kogod-section"><div class="kogod-section-label">Key Credentials</div><div class="kogod-tags"><span class="cert-tag">Product or analytics portfolio</span><span class="cert-tag">Dashboard or business case sample</span><span class="cert-tag">Responsible AI or cybersecurity brief</span></div></div>
+          <div class="kogod-tip"><strong>Pro tip:</strong> For a student who only knows they are interested in technology, this is a good function to test through one project, one informational interview, and one targeted resume version.</div>
+        </div>
+      </div>
+      <div class="tab-panel" id="pivot-cybersecurity-business-and-r">
+        <div class="pivot-panel">
+          <div class="pivot-panel-header"><span class="pivot-panel-title">Pivoting Into Cybersecurity Business &amp; Risk</span></div>
+          <div class="pivot-section"><div class="pivot-section-label">Transferable Backgrounds</div><div class="pivot-tags"><span class="pivot-tag">Career changers</span><span class="pivot-tag">Student leadership</span><span class="pivot-tag">Analytics</span><span class="pivot-tag">Client service</span></div></div>
+          <div class="pivot-section"><div class="pivot-section-label">Graduate Pivot Roadmap</div><ul class="pivot-steps"><li class="pivot-step"><span class="pivot-step-num">1</span><span>Translate your past experience into the language of cybersecurity business &amp; risk.</span></li><li class="pivot-step"><span class="pivot-step-num">2</span><span>Build one small work sample that shows how you think, not just what classes you took.</span></li><li class="pivot-step"><span class="pivot-step-num">3</span><span>Use informational interviews to learn the entry titles employers actually use.</span></li><li class="pivot-step"><span class="pivot-step-num">4</span><span>Apply to analyst, associate, coordinator, and specialist titles rather than only senior-sounding roles.</span></li></ul></div>
+          <div class="pivot-tip">Graduate students can use this path to test fit quickly because the entry work is visible, portfolio-friendly, and connected to multiple next-step roles.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-category="strategy" data-name="AI Strategy &amp; Governance" data-salary-mid="145000">
+  <div class="card-header">
+    <div class="card-top">
+      <span class="card-category-badge">Strategy</span>
+      <span class="depth-badge">Business-facing</span>
+    </div>
+    <h2 class="card-title">AI Strategy &amp; Governance</h2>
+    <p class="card-subtitle">Guide responsible AI use cases, adoption, governance, risk, and business value creation.</p>
+    <p class="best-for"><strong>Best for students who...</strong> like emerging technology, ethics, organizational change, and practical experimentation.</p>
+  </div>
+  <div class="card-body">
+    <p class="card-description">These roles help organizations make better technology decisions. Early-career work usually includes research, analysis, stakeholder updates, process support, and turning ambiguous requests into usable recommendations.</p>
+  </div>
+  <div class="card-footer">
+    <div class="tab-buttons">
+      <button class="tab-btn tab-details" data-tab="details" data-card="ai-strategy-and-governance">Role Snapshot</button>
+      <button class="tab-btn tab-context" data-tab="context" data-card="ai-strategy-and-governance">Work Context</button>
+      <button class="tab-btn tab-kogod" data-tab="kogod" data-card="ai-strategy-and-governance"><div class="tab-dot" style="background:var(--color-kogod)"></div>Kogod Prep</button>
+      <button class="tab-btn tab-pivot" data-tab="pivot" data-card="ai-strategy-and-governance"><div class="tab-dot" style="background:var(--color-pivot)"></div>Pivot Guide</button>
+    </div>
+    <div class="tab-panels" id="panels-ai-strategy-and-governance">
+      <div class="tab-panel" id="details-ai-strategy-and-governance">
+        <div class="section-title">Core Skills</div>
+        <div class="skills-wrap"><span class="skill-tag">AI literacy</span><span class="skill-tag">Use-case design</span><span class="skill-tag">Governance</span><span class="skill-tag">Risk assessment</span><span class="skill-tag">Change management</span></div>
+        <div class="section-title" style="margin-top:var(--space-4); margin-bottom:var(--space-2)">Career Path</div>
+        <div class="roles-list"><div class="role-item">Analyst / Associate -&gt; Senior Analyst -&gt; Manager -&gt; Director -&gt; Product / Data / Technology Leader</div></div>
+        <div class="section-title" style="margin-top:var(--space-4); margin-bottom:var(--space-2)">Entry-Level Titles to Try</div>
+        <div class="skills-wrap"><span class="skill-tag">AI Strategy Analyst</span><span class="skill-tag">Responsible AI Analyst</span><span class="skill-tag">AI Governance Associate</span></div>
+        <div class="section-title" style="margin-top:var(--space-4); margin-bottom:var(--space-2)">Starter Search Terms</div>
+        <div class="skills-wrap"><span class="cert-tag">AI strategy analyst</span><span class="cert-tag">responsible AI analyst</span><span class="cert-tag">AI governance associate</span><span class="cert-tag">AI product analyst</span></div>
+        
+        
+        <div class="skills-valued-group">
+          <div class="section-title" style="margin-top:var(--space-4)">Strengths that may help</div>
+          <div class="strengths-wrap"><span class="strength-tag cs-tag-strategic">Learner</span><span class="strength-tag cs-tag-strategic">Analytical</span><span class="strength-tag cs-tag-strategic">Futuristic</span></div>
+          <div class="skills-valued-label">Technical</div>
+          <div class="skills-wrap"><span class="skill-tag">AI literacy</span><span class="skill-tag">Use-case design</span><span class="skill-tag">Governance</span><span class="skill-tag">Risk assessment</span><span class="skill-tag">Change management</span></div>
+          <div class="skills-valued-label">Professional</div>
+          <div class="skills-wrap"><span class="skill-tag">Business writing</span><span class="skill-tag">Stakeholder communication</span><span class="skill-tag">Follow-through</span><span class="skill-tag">Curiosity</span></div>
+        </div>
+      </div>
+      <div class="tab-panel" id="context-ai-strategy-and-governance">
+        <div class="salary-section">
+          <div class="salary-header">
+            <span class="salary-label">Directional pay context</span>
+            <span class="salary-total">$90K-175K <span>not a target</span></span>
+          </div>
+          <div class="salary-levels">
+            <div class="salary-row"><span class="salary-level-name">Early career</span><div class="salary-bar-track"><div class="salary-bar-fill" style="width:38%;background:var(--color-primary);opacity:.65"></div></div><span class="salary-amount">$90K-115K</span></div>
+            <div class="salary-row"><span class="salary-level-name">Experienced</span><div class="salary-bar-track"><div class="salary-bar-fill" style="width:72%;background:var(--color-primary);opacity:.8"></div></div><span class="salary-amount">$130K-175K</span></div>
+          </div>
+        </div>
+        
+        <div class="section-title" style="margin-top:var(--space-4); margin-bottom:var(--space-2)">Work Context</div>
+        <div class="detail-grid" style="margin-top:var(--space-2)">
+          <div class="detail-item"><div class="detail-item-label">Common Backgrounds</div><div class="detail-item-value">Business, Analytics, Operations, Communications</div></div>
+          <div class="detail-item"><div class="detail-item-label">Typical Employers</div><div class="detail-item-value">Corporations, Consulting firms, Nonprofits, Government agencies</div></div>
+          <div class="detail-item"><div class="detail-item-label">Hours / Week</div><div class="detail-item-value">40-55 hrs</div></div>
+          <div class="detail-item"><div class="detail-item-label">Comp Structure</div><div class="detail-item-value">Varies by sector and role level</div></div>
+        </div>
+      </div>
+      <div class="tab-panel" id="kogod-ai-strategy-and-governance">
+        <div class="kogod-panel">
+          <div class="kogod-panel-header"><span class="kogod-panel-title">How to Prepare at AU + Kogod</span></div>
+          <div class="kogod-section"><div class="kogod-section-label">Key Courses</div><div class="kogod-tags"><span class="kogod-tag">ITEC-620 Business Insights Through Analytics</span><span class="kogod-tag">MGMT-647 Sustainability and Technology when relevant</span><span class="kogod-tag">KSB-613 Strategic Decision Making</span></div></div>
+          <div class="kogod-section"><div class="kogod-section-label">Experiences, Publishing & Networking</div><div class="kogod-tags"><span class="kogod-tag">AI use-case brief</span><a class="kogod-tag" href="https://careers.kogod.american.edu/channels/technology/" target="_blank" rel="noopener noreferrer">Digital transformation case memo</a><a class="kogod-tag" href="https://careers.kogod.american.edu/channels/technology/" target="_blank" rel="noopener noreferrer">Technology career channel resources</a></div></div>
+          
+          
+          
+          <div class="kogod-section"><div class="kogod-section-label">Key Credentials</div><div class="kogod-tags"><span class="cert-tag">Product or analytics portfolio</span><span class="cert-tag">Dashboard or business case sample</span><span class="cert-tag">Responsible AI or cybersecurity brief</span></div></div>
+          <div class="kogod-tip"><strong>Pro tip:</strong> For a student who only knows they are interested in technology, this is a good function to test through one project, one informational interview, and one targeted resume version.</div>
+        </div>
+      </div>
+      <div class="tab-panel" id="pivot-ai-strategy-and-governance">
+        <div class="pivot-panel">
+          <div class="pivot-panel-header"><span class="pivot-panel-title">Pivoting Into AI Strategy &amp; Governance</span></div>
+          <div class="pivot-section"><div class="pivot-section-label">Transferable Backgrounds</div><div class="pivot-tags"><span class="pivot-tag">Career changers</span><span class="pivot-tag">Student leadership</span><span class="pivot-tag">Analytics</span><span class="pivot-tag">Client service</span></div></div>
+          <div class="pivot-section"><div class="pivot-section-label">Graduate Pivot Roadmap</div><ul class="pivot-steps"><li class="pivot-step"><span class="pivot-step-num">1</span><span>Translate your past experience into the language of ai strategy &amp; governance.</span></li><li class="pivot-step"><span class="pivot-step-num">2</span><span>Build one small work sample that shows how you think, not just what classes you took.</span></li><li class="pivot-step"><span class="pivot-step-num">3</span><span>Use informational interviews to learn the entry titles employers actually use.</span></li><li class="pivot-step"><span class="pivot-step-num">4</span><span>Apply to analyst, associate, coordinator, and specialist titles rather than only senior-sounding roles.</span></li></ul></div>
+          <div class="pivot-tip">Graduate students can use this path to test fit quickly because the entry work is visible, portfolio-friendly, and connected to multiple next-step roles.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-category="product" data-name="UX / Product Design Business" data-salary-mid="115000">
+  <div class="card-header">
+    <div class="card-top">
+      <span class="card-category-badge">Product</span>
+      <span class="depth-badge">Business-facing</span>
+    </div>
+    <h2 class="card-title">UX / Product Design Business</h2>
+    <p class="card-subtitle">Use research, journey mapping, and product strategy to improve digital experiences.</p>
+    <p class="best-for"><strong>Best for students who...</strong> like customer empathy, problem framing, prototyping, and translating user needs into business value.</p>
+  </div>
+  <div class="card-body">
+    <p class="card-description">These roles help organizations make better technology decisions. Early-career work usually includes research, analysis, stakeholder updates, process support, and turning ambiguous requests into usable recommendations.</p>
+  </div>
+  <div class="card-footer">
+    <div class="tab-buttons">
+      <button class="tab-btn tab-details" data-tab="details" data-card="ux-product-design-business">Role Snapshot</button>
+      <button class="tab-btn tab-context" data-tab="context" data-card="ux-product-design-business">Work Context</button>
+      <button class="tab-btn tab-kogod" data-tab="kogod" data-card="ux-product-design-business"><div class="tab-dot" style="background:var(--color-kogod)"></div>Kogod Prep</button>
+      <button class="tab-btn tab-pivot" data-tab="pivot" data-card="ux-product-design-business"><div class="tab-dot" style="background:var(--color-pivot)"></div>Pivot Guide</button>
+    </div>
+    <div class="tab-panels" id="panels-ux-product-design-business">
+      <div class="tab-panel" id="details-ux-product-design-business">
+        <div class="section-title">Core Skills</div>
+        <div class="skills-wrap"><span class="skill-tag">User research</span><span class="skill-tag">Journey mapping</span><span class="skill-tag">Prototyping</span><span class="skill-tag">Design thinking</span><span class="skill-tag">Product metrics</span></div>
+        <div class="section-title" style="margin-top:var(--space-4); margin-bottom:var(--space-2)">Career Path</div>
+        <div class="roles-list"><div class="role-item">Analyst / Associate -&gt; Senior Analyst -&gt; Manager -&gt; Director -&gt; Product / Data / Technology Leader</div></div>
+        <div class="section-title" style="margin-top:var(--space-4); margin-bottom:var(--space-2)">Entry-Level Titles to Try</div>
+        <div class="skills-wrap"><span class="skill-tag">UX Research Associate</span><span class="skill-tag">Product Design Coordinator</span><span class="skill-tag">Design Strategy Analyst</span></div>
+        <div class="section-title" style="margin-top:var(--space-4); margin-bottom:var(--space-2)">Starter Search Terms</div>
+        <div class="skills-wrap"><span class="cert-tag">UX research associate</span><span class="cert-tag">product design coordinator</span><span class="cert-tag">design strategy analyst</span><span class="cert-tag">user research assistant</span></div>
+        
+        
+        <div class="skills-valued-group">
+          <div class="section-title" style="margin-top:var(--space-4)">Strengths that may help</div>
+          <div class="strengths-wrap"><span class="strength-tag cs-tag-strategic">Learner</span><span class="strength-tag cs-tag-strategic">Analytical</span><span class="strength-tag cs-tag-strategic">Futuristic</span></div>
+          <div class="skills-valued-label">Technical</div>
+          <div class="skills-wrap"><span class="skill-tag">User research</span><span class="skill-tag">Journey mapping</span><span class="skill-tag">Prototyping</span><span class="skill-tag">Design thinking</span><span class="skill-tag">Product metrics</span></div>
+          <div class="skills-valued-label">Professional</div>
+          <div class="skills-wrap"><span class="skill-tag">Business writing</span><span class="skill-tag">Stakeholder communication</span><span class="skill-tag">Follow-through</span><span class="skill-tag">Curiosity</span></div>
+        </div>
+      </div>
+      <div class="tab-panel" id="context-ux-product-design-business">
+        <div class="salary-section">
+          <div class="salary-header">
+            <span class="salary-label">Directional pay context</span>
+            <span class="salary-total">$75K-145K <span>not a target</span></span>
+          </div>
+          <div class="salary-levels">
+            <div class="salary-row"><span class="salary-level-name">Early career</span><div class="salary-bar-track"><div class="salary-bar-fill" style="width:38%;background:var(--color-primary);opacity:.65"></div></div><span class="salary-amount">$75K-95K</span></div>
+            <div class="salary-row"><span class="salary-level-name">Experienced</span><div class="salary-bar-track"><div class="salary-bar-fill" style="width:72%;background:var(--color-primary);opacity:.8"></div></div><span class="salary-amount">$110K-145K</span></div>
+          </div>
+        </div>
+        
+        <div class="section-title" style="margin-top:var(--space-4); margin-bottom:var(--space-2)">Work Context</div>
+        <div class="detail-grid" style="margin-top:var(--space-2)">
+          <div class="detail-item"><div class="detail-item-label">Common Backgrounds</div><div class="detail-item-value">Business, Analytics, Operations, Communications</div></div>
+          <div class="detail-item"><div class="detail-item-label">Typical Employers</div><div class="detail-item-value">Corporations, Consulting firms, Nonprofits, Government agencies</div></div>
+          <div class="detail-item"><div class="detail-item-label">Hours / Week</div><div class="detail-item-value">40-55 hrs</div></div>
+          <div class="detail-item"><div class="detail-item-label">Comp Structure</div><div class="detail-item-value">Varies by sector and role level</div></div>
+        </div>
+      </div>
+      <div class="tab-panel" id="kogod-ux-product-design-business">
+        <div class="kogod-panel">
+          <div class="kogod-panel-header"><span class="kogod-panel-title">How to Prepare at AU + Kogod</span></div>
+          <div class="kogod-section"><div class="kogod-section-label">Key Courses</div><div class="kogod-tags"><span class="kogod-tag">Advisor-approved technology elective</span><span class="kogod-tag">MKTG-767 Research Methods</span><span class="kogod-tag">KSB-613 Strategic Decision Making</span></div></div>
+          <div class="kogod-section"><div class="kogod-section-label">Experiences, Publishing & Networking</div><div class="kogod-tags"><span class="kogod-tag">Product teardown or PRD sample</span><span class="kogod-tag">User interview notes</span><a class="kogod-tag" href="https://careers.kogod.american.edu/" target="_blank" rel="noopener noreferrer">Product/technology alumni conversations</a></div></div>
+          
+          
+          
+          <div class="kogod-section"><div class="kogod-section-label">Key Credentials</div><div class="kogod-tags"><span class="cert-tag">Product or analytics portfolio</span><span class="cert-tag">Dashboard or business case sample</span><span class="cert-tag">Responsible AI or cybersecurity brief</span></div></div>
+          <div class="kogod-tip"><strong>Pro tip:</strong> For a student who only knows they are interested in technology, this is a good function to test through one project, one informational interview, and one targeted resume version.</div>
+        </div>
+      </div>
+      <div class="tab-panel" id="pivot-ux-product-design-business">
+        <div class="pivot-panel">
+          <div class="pivot-panel-header"><span class="pivot-panel-title">Pivoting Into UX / Product Design Business</span></div>
+          <div class="pivot-section"><div class="pivot-section-label">Transferable Backgrounds</div><div class="pivot-tags"><span class="pivot-tag">Career changers</span><span class="pivot-tag">Student leadership</span><span class="pivot-tag">Analytics</span><span class="pivot-tag">Client service</span></div></div>
+          <div class="pivot-section"><div class="pivot-section-label">Graduate Pivot Roadmap</div><ul class="pivot-steps"><li class="pivot-step"><span class="pivot-step-num">1</span><span>Translate your past experience into the language of ux / product design business.</span></li><li class="pivot-step"><span class="pivot-step-num">2</span><span>Build one small work sample that shows how you think, not just what classes you took.</span></li><li class="pivot-step"><span class="pivot-step-num">3</span><span>Use informational interviews to learn the entry titles employers actually use.</span></li><li class="pivot-step"><span class="pivot-step-num">4</span><span>Apply to analyst, associate, coordinator, and specialist titles rather than only senior-sounding roles.</span></li></ul></div>
+          <div class="pivot-tip">Graduate students can use this path to test fit quickly because the entry work is visible, portfolio-friendly, and connected to multiple next-step roles.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-category="growth" data-name="Technology Sales &amp; Business Development" data-salary-mid="145000">
+  <div class="card-header">
+    <div class="card-top">
+      <span class="card-category-badge">Growth</span>
+      <span class="depth-badge">Business-facing</span>
+    </div>
+    <h2 class="card-title">Technology Sales &amp; Business Development</h2>
+    <p class="card-subtitle">Sell technology solutions, manage pipelines, and translate business needs into product value.</p>
+    <p class="best-for"><strong>Best for students who...</strong> like relationships, persuasion, business problems, demos, and measurable revenue goals.</p>
+  </div>
+  <div class="card-body">
+    <p class="card-description">These roles help organizations make better technology decisions. Early-career work usually includes research, analysis, stakeholder updates, process support, and turning ambiguous requests into usable recommendations.</p>
+  </div>
+  <div class="card-footer">
+    <div class="tab-buttons">
+      <button class="tab-btn tab-details" data-tab="details" data-card="technology-sales-and-busines">Role Snapshot</button>
+      <button class="tab-btn tab-context" data-tab="context" data-card="technology-sales-and-busines">Work Context</button>
+      <button class="tab-btn tab-kogod" data-tab="kogod" data-card="technology-sales-and-busines"><div class="tab-dot" style="background:var(--color-kogod)"></div>Kogod Prep</button>
+      <button class="tab-btn tab-pivot" data-tab="pivot" data-card="technology-sales-and-busines"><div class="tab-dot" style="background:var(--color-pivot)"></div>Pivot Guide</button>
+    </div>
+    <div class="tab-panels" id="panels-technology-sales-and-busines">
+      <div class="tab-panel" id="details-technology-sales-and-busines">
+        <div class="section-title">Core Skills</div>
+        <div class="skills-wrap"><span class="skill-tag">Consultative selling</span><span class="skill-tag">Pipeline management</span><span class="skill-tag">Discovery calls</span><span class="skill-tag">Product fluency</span><span class="skill-tag">Negotiation</span></div>
+        <div class="section-title" style="margin-top:var(--space-4); margin-bottom:var(--space-2)">Career Path</div>
+        <div class="roles-list"><div class="role-item">Analyst / Associate -&gt; Senior Analyst -&gt; Manager -&gt; Director -&gt; Product / Data / Technology Leader</div></div>
+        <div class="section-title" style="margin-top:var(--space-4); margin-bottom:var(--space-2)">Entry-Level Titles to Try</div>
+        <div class="skills-wrap"><span class="skill-tag">Sales Development Representative</span><span class="skill-tag">Business Development Representative</span><span class="skill-tag">Solutions Consultant Associate</span></div>
+        <div class="section-title" style="margin-top:var(--space-4); margin-bottom:var(--space-2)">Starter Search Terms</div>
+        <div class="skills-wrap"><span class="cert-tag">sales development representative</span><span class="cert-tag">business development representative</span><span class="cert-tag">solutions consultant associate</span><span class="cert-tag">tech sales associate</span></div>
+        
+        
+        <div class="skills-valued-group">
+          <div class="section-title" style="margin-top:var(--space-4)">Strengths that may help</div>
+          <div class="strengths-wrap"><span class="strength-tag cs-tag-strategic">Learner</span><span class="strength-tag cs-tag-strategic">Analytical</span><span class="strength-tag cs-tag-strategic">Futuristic</span></div>
+          <div class="skills-valued-label">Technical</div>
+          <div class="skills-wrap"><span class="skill-tag">Consultative selling</span><span class="skill-tag">Pipeline management</span><span class="skill-tag">Discovery calls</span><span class="skill-tag">Product fluency</span><span class="skill-tag">Negotiation</span></div>
+          <div class="skills-valued-label">Professional</div>
+          <div class="skills-wrap"><span class="skill-tag">Business writing</span><span class="skill-tag">Stakeholder communication</span><span class="skill-tag">Follow-through</span><span class="skill-tag">Curiosity</span></div>
+        </div>
+      </div>
+      <div class="tab-panel" id="context-technology-sales-and-busines">
+        <div class="salary-section">
+          <div class="salary-header">
+            <span class="salary-label">Directional pay context</span>
+            <span class="salary-total">$75K-180K+ <span>not a target</span></span>
+          </div>
+          <div class="salary-levels">
+            <div class="salary-row"><span class="salary-level-name">Early career</span><div class="salary-bar-track"><div class="salary-bar-fill" style="width:38%;background:var(--color-primary);opacity:.65"></div></div><span class="salary-amount">$75K-110K</span></div>
+            <div class="salary-row"><span class="salary-level-name">Experienced</span><div class="salary-bar-track"><div class="salary-bar-fill" style="width:72%;background:var(--color-primary);opacity:.8"></div></div><span class="salary-amount">$120K-180K+</span></div>
+          </div>
+        </div>
+        
+        <div class="section-title" style="margin-top:var(--space-4); margin-bottom:var(--space-2)">Work Context</div>
+        <div class="detail-grid" style="margin-top:var(--space-2)">
+          <div class="detail-item"><div class="detail-item-label">Common Backgrounds</div><div class="detail-item-value">Business, Analytics, Operations, Communications</div></div>
+          <div class="detail-item"><div class="detail-item-label">Typical Employers</div><div class="detail-item-value">Corporations, Consulting firms, Nonprofits, Government agencies</div></div>
+          <div class="detail-item"><div class="detail-item-label">Hours / Week</div><div class="detail-item-value">40-55 hrs</div></div>
+          <div class="detail-item"><div class="detail-item-label">Comp Structure</div><div class="detail-item-value">Base plus commission common</div></div>
+        </div>
+      </div>
+      <div class="tab-panel" id="kogod-technology-sales-and-busines">
+        <div class="kogod-panel">
+          <div class="kogod-panel-header"><span class="kogod-panel-title">How to Prepare at AU + Kogod</span></div>
+          <div class="kogod-section"><div class="kogod-section-label">Key Courses</div><div class="kogod-tags"><span class="kogod-tag">MKTG-765 Brand Strategy</span><span class="kogod-tag">MGMT-665 Negotiations</span><span class="kogod-tag">Advisor-approved technology elective</span></div></div>
+          <div class="kogod-section"><div class="kogod-section-label">Experiences, Publishing & Networking</div><div class="kogod-tags"><span class="kogod-tag">Mock discovery call script</span><span class="kogod-tag">Salesforce Trailhead badge</span><a class="kogod-tag" href="https://careers.kogod.american.edu/channels/technology/" target="_blank" rel="noopener noreferrer">Tech account list and outreach plan</a></div></div>
+          
+          
+          
+          <div class="kogod-section"><div class="kogod-section-label">Key Credentials</div><div class="kogod-tags"><span class="cert-tag">Product or analytics portfolio</span><span class="cert-tag">Dashboard or business case sample</span><span class="cert-tag">Responsible AI or cybersecurity brief</span></div></div>
+          <div class="kogod-tip"><strong>Pro tip:</strong> For a student who only knows they are interested in technology, this is a good function to test through one project, one informational interview, and one targeted resume version.</div>
+        </div>
+      </div>
+      <div class="tab-panel" id="pivot-technology-sales-and-busines">
+        <div class="pivot-panel">
+          <div class="pivot-panel-header"><span class="pivot-panel-title">Pivoting Into Technology Sales &amp; Business Development</span></div>
+          <div class="pivot-section"><div class="pivot-section-label">Transferable Backgrounds</div><div class="pivot-tags"><span class="pivot-tag">Career changers</span><span class="pivot-tag">Student leadership</span><span class="pivot-tag">Analytics</span><span class="pivot-tag">Client service</span></div></div>
+          <div class="pivot-section"><div class="pivot-section-label">Graduate Pivot Roadmap</div><ul class="pivot-steps"><li class="pivot-step"><span class="pivot-step-num">1</span><span>Translate your past experience into the language of technology sales &amp; business development.</span></li><li class="pivot-step"><span class="pivot-step-num">2</span><span>Build one small work sample that shows how you think, not just what classes you took.</span></li><li class="pivot-step"><span class="pivot-step-num">3</span><span>Use informational interviews to learn the entry titles employers actually use.</span></li><li class="pivot-step"><span class="pivot-step-num">4</span><span>Apply to analyst, associate, coordinator, and specialist titles rather than only senior-sounding roles.</span></li></ul></div>
+          <div class="pivot-tip">Graduate students can use this path to test fit quickly because the entry work is visible, portfolio-friendly, and connected to multiple next-step roles.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-category="strategy" data-name="Technology Operations &amp; Program Management" data-salary-mid="130000">
+  <div class="card-header">
+    <div class="card-top">
+      <span class="card-category-badge">Strategy</span>
+      <span class="depth-badge">Hybrid</span>
+    </div>
+    <h2 class="card-title">Technology Operations &amp; Program Management</h2>
+    <p class="card-subtitle">Coordinate technology programs, vendors, timelines, risks, and cross-functional execution.</p>
+    <p class="best-for"><strong>Best for students who...</strong> like organizing complex work, removing blockers, and making technical and business teams align.</p>
+  </div>
+  <div class="card-body">
+    <p class="card-description">These roles help organizations make better technology decisions. Early-career work usually includes research, analysis, stakeholder updates, process support, and turning ambiguous requests into usable recommendations.</p>
+  </div>
+  <div class="card-footer">
+    <div class="tab-buttons">
+      <button class="tab-btn tab-details" data-tab="details" data-card="technology-operations-and-pr">Role Snapshot</button>
+      <button class="tab-btn tab-context" data-tab="context" data-card="technology-operations-and-pr">Work Context</button>
+      <button class="tab-btn tab-kogod" data-tab="kogod" data-card="technology-operations-and-pr"><div class="tab-dot" style="background:var(--color-kogod)"></div>Kogod Prep</button>
+      <button class="tab-btn tab-pivot" data-tab="pivot" data-card="technology-operations-and-pr"><div class="tab-dot" style="background:var(--color-pivot)"></div>Pivot Guide</button>
+    </div>
+    <div class="tab-panels" id="panels-technology-operations-and-pr">
+      <div class="tab-panel" id="details-technology-operations-and-pr">
+        <div class="section-title">Core Skills</div>
+        <div class="skills-wrap"><span class="skill-tag">Program management</span><span class="skill-tag">Agile basics</span><span class="skill-tag">Vendor coordination</span><span class="skill-tag">Risk tracking</span><span class="skill-tag">Status reporting</span></div>
+        <div class="section-title" style="margin-top:var(--space-4); margin-bottom:var(--space-2)">Career Path</div>
+        <div class="roles-list"><div class="role-item">Analyst / Associate -&gt; Senior Analyst -&gt; Manager -&gt; Director -&gt; Product / Data / Technology Leader</div></div>
+        <div class="section-title" style="margin-top:var(--space-4); margin-bottom:var(--space-2)">Entry-Level Titles to Try</div>
+        <div class="skills-wrap"><span class="skill-tag">Technical Program Coordinator</span><span class="skill-tag">Project Coordinator</span><span class="skill-tag">Product Operations Associate</span></div>
+        <div class="section-title" style="margin-top:var(--space-4); margin-bottom:var(--space-2)">Starter Search Terms</div>
+        <div class="skills-wrap"><span class="cert-tag">technical program coordinator</span><span class="cert-tag">technical project coordinator</span><span class="cert-tag">product operations associate</span><span class="cert-tag">technology program analyst</span></div>
+        
+        
+        <div class="skills-valued-group">
+          <div class="section-title" style="margin-top:var(--space-4)">Strengths that may help</div>
+          <div class="strengths-wrap"><span class="strength-tag cs-tag-strategic">Learner</span><span class="strength-tag cs-tag-strategic">Analytical</span><span class="strength-tag cs-tag-strategic">Futuristic</span></div>
+          <div class="skills-valued-label">Technical</div>
+          <div class="skills-wrap"><span class="skill-tag">Program management</span><span class="skill-tag">Agile basics</span><span class="skill-tag">Vendor coordination</span><span class="skill-tag">Risk tracking</span><span class="skill-tag">Status reporting</span></div>
+          <div class="skills-valued-label">Professional</div>
+          <div class="skills-wrap"><span class="skill-tag">Business writing</span><span class="skill-tag">Stakeholder communication</span><span class="skill-tag">Follow-through</span><span class="skill-tag">Curiosity</span></div>
+        </div>
+      </div>
+      <div class="tab-panel" id="context-technology-operations-and-pr">
+        <div class="salary-section">
+          <div class="salary-header">
+            <span class="salary-label">Directional pay context</span>
+            <span class="salary-total">$85K-160K <span>not a target</span></span>
+          </div>
+          <div class="salary-levels">
+            <div class="salary-row"><span class="salary-level-name">Early career</span><div class="salary-bar-track"><div class="salary-bar-fill" style="width:38%;background:var(--color-primary);opacity:.65"></div></div><span class="salary-amount">$85K-105K</span></div>
+            <div class="salary-row"><span class="salary-level-name">Experienced</span><div class="salary-bar-track"><div class="salary-bar-fill" style="width:72%;background:var(--color-primary);opacity:.8"></div></div><span class="salary-amount">$120K-160K</span></div>
+          </div>
+        </div>
+        
+        <div class="section-title" style="margin-top:var(--space-4); margin-bottom:var(--space-2)">Work Context</div>
+        <div class="detail-grid" style="margin-top:var(--space-2)">
+          <div class="detail-item"><div class="detail-item-label">Common Backgrounds</div><div class="detail-item-value">Business, Analytics, Operations, Communications</div></div>
+          <div class="detail-item"><div class="detail-item-label">Typical Employers</div><div class="detail-item-value">Corporations, Consulting firms, Nonprofits, Government agencies</div></div>
+          <div class="detail-item"><div class="detail-item-label">Hours / Week</div><div class="detail-item-value">40-55 hrs</div></div>
+          <div class="detail-item"><div class="detail-item-label">Comp Structure</div><div class="detail-item-value">Varies by sector and role level</div></div>
+        </div>
+      </div>
+      <div class="tab-panel" id="kogod-technology-operations-and-pr">
+        <div class="kogod-panel">
+          <div class="kogod-panel-header"><span class="kogod-panel-title">How to Prepare at AU + Kogod</span></div>
+          <div class="kogod-section"><div class="kogod-section-label">Key Courses</div><div class="kogod-tags"><span class="kogod-tag">Advisor-approved technology elective</span><span class="kogod-tag">ITEC-620 Business Insights Through Analytics</span><span class="kogod-tag">ITEC-630 Business Process Analysis</span></div></div>
+          <div class="kogod-section"><div class="kogod-section-label">Experiences, Publishing & Networking</div><div class="kogod-tags"><span class="kogod-tag">AI use-case brief</span><a class="kogod-tag" href="https://careers.kogod.american.edu/channels/technology/" target="_blank" rel="noopener noreferrer">Digital transformation case memo</a><a class="kogod-tag" href="https://careers.kogod.american.edu/channels/technology/" target="_blank" rel="noopener noreferrer">Technology career channel resources</a></div></div>
+          
+          
+          
+          <div class="kogod-section"><div class="kogod-section-label">Key Credentials</div><div class="kogod-tags"><span class="cert-tag">Product or analytics portfolio</span><span class="cert-tag">Dashboard or business case sample</span><span class="cert-tag">Responsible AI or cybersecurity brief</span></div></div>
+          <div class="kogod-tip"><strong>Pro tip:</strong> For a student who only knows they are interested in technology, this is a good function to test through one project, one informational interview, and one targeted resume version.</div>
+        </div>
+      </div>
+      <div class="tab-panel" id="pivot-technology-operations-and-pr">
+        <div class="pivot-panel">
+          <div class="pivot-panel-header"><span class="pivot-panel-title">Pivoting Into Technology Operations &amp; Program Management</span></div>
+          <div class="pivot-section"><div class="pivot-section-label">Transferable Backgrounds</div><div class="pivot-tags"><span class="pivot-tag">Career changers</span><span class="pivot-tag">Student leadership</span><span class="pivot-tag">Analytics</span><span class="pivot-tag">Client service</span></div></div>
+          <div class="pivot-section"><div class="pivot-section-label">Graduate Pivot Roadmap</div><ul class="pivot-steps"><li class="pivot-step"><span class="pivot-step-num">1</span><span>Translate your past experience into the language of technology operations &amp; program management.</span></li><li class="pivot-step"><span class="pivot-step-num">2</span><span>Build one small work sample that shows how you think, not just what classes you took.</span></li><li class="pivot-step"><span class="pivot-step-num">3</span><span>Use informational interviews to learn the entry titles employers actually use.</span></li><li class="pivot-step"><span class="pivot-step-num">4</span><span>Apply to analyst, associate, coordinator, and specialist titles rather than only senior-sounding roles.</span></li></ul></div>
+          <div class="pivot-tip">Graduate students can use this path to test fit quickly because the entry work is visible, portfolio-friendly, and connected to multiple next-step roles.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-category="investment" data-name="Venture Capital &amp; Tech Investment" data-salary-mid="170000">
+  <div class="card-header">
+    <div class="card-top">
+      <span class="card-category-badge">Investment</span>
+      <span class="depth-badge">Business-facing</span>
+    </div>
+    <h2 class="card-title">Venture Capital &amp; Tech Investment</h2>
+    <p class="card-subtitle">Evaluate startups, markets, founders, products, financials, and technology investment theses.</p>
+    <p class="best-for"><strong>Best for students who...</strong> like startups, research, networking, market maps, and forming a point of view on emerging sectors.</p>
+  </div>
+  <div class="card-body">
+    <p class="card-description">These roles help organizations make better technology decisions. Early-career work usually includes research, analysis, stakeholder updates, process support, and turning ambiguous requests into usable recommendations.</p>
+  </div>
+  <div class="card-footer">
+    <div class="tab-buttons">
+      <button class="tab-btn tab-details" data-tab="details" data-card="venture-capital-and-tech-inv">Role Snapshot</button>
+      <button class="tab-btn tab-context" data-tab="context" data-card="venture-capital-and-tech-inv">Work Context</button>
+      <button class="tab-btn tab-kogod" data-tab="kogod" data-card="venture-capital-and-tech-inv"><div class="tab-dot" style="background:var(--color-kogod)"></div>Kogod Prep</button>
+      <button class="tab-btn tab-pivot" data-tab="pivot" data-card="venture-capital-and-tech-inv"><div class="tab-dot" style="background:var(--color-pivot)"></div>Pivot Guide</button>
+    </div>
+    <div class="tab-panels" id="panels-venture-capital-and-tech-inv">
+      <div class="tab-panel" id="details-venture-capital-and-tech-inv">
+        <div class="section-title">Core Skills</div>
+        <div class="skills-wrap"><span class="skill-tag">Market mapping</span><span class="skill-tag">Startup diligence</span><span class="skill-tag">Financial analysis</span><span class="skill-tag">Investment memos</span><span class="skill-tag">Networking</span></div>
+        <div class="section-title" style="margin-top:var(--space-4); margin-bottom:var(--space-2)">Career Path</div>
+        <div class="roles-list"><div class="role-item">Analyst / Associate -&gt; Senior Analyst -&gt; Manager -&gt; Director -&gt; Product / Data / Technology Leader</div></div>
+        <div class="section-title" style="margin-top:var(--space-4); margin-bottom:var(--space-2)">Entry-Level Titles to Try</div>
+        <div class="skills-wrap"><span class="skill-tag">Venture Analyst</span><span class="skill-tag">Investment Analyst</span><span class="skill-tag">Startup Scout</span></div>
+        <div class="section-title" style="margin-top:var(--space-4); margin-bottom:var(--space-2)">Starter Search Terms</div>
+        <div class="skills-wrap"><span class="cert-tag">venture analyst</span><span class="cert-tag">tech investment analyst</span><span class="cert-tag">startup scout</span><span class="cert-tag">venture capital associate</span></div>
+        
+        
+        <div class="skills-valued-group">
+          <div class="section-title" style="margin-top:var(--space-4)">Strengths that may help</div>
+          <div class="strengths-wrap"><span class="strength-tag cs-tag-strategic">Learner</span><span class="strength-tag cs-tag-strategic">Analytical</span><span class="strength-tag cs-tag-strategic">Futuristic</span></div>
+          <div class="skills-valued-label">Technical</div>
+          <div class="skills-wrap"><span class="skill-tag">Market mapping</span><span class="skill-tag">Startup diligence</span><span class="skill-tag">Financial analysis</span><span class="skill-tag">Investment memos</span><span class="skill-tag">Networking</span></div>
+          <div class="skills-valued-label">Professional</div>
+          <div class="skills-wrap"><span class="skill-tag">Business writing</span><span class="skill-tag">Stakeholder communication</span><span class="skill-tag">Follow-through</span><span class="skill-tag">Curiosity</span></div>
+        </div>
+      </div>
+      <div class="tab-panel" id="context-venture-capital-and-tech-inv">
+        <div class="salary-section">
+          <div class="salary-header">
+            <span class="salary-label">Directional pay context</span>
+            <span class="salary-total">$90K-220K+ <span>not a target</span></span>
+          </div>
+          <div class="salary-levels">
+            <div class="salary-row"><span class="salary-level-name">Early career</span><div class="salary-bar-track"><div class="salary-bar-fill" style="width:38%;background:var(--color-primary);opacity:.65"></div></div><span class="salary-amount">$90K-130K</span></div>
+            <div class="salary-row"><span class="salary-level-name">Experienced</span><div class="salary-bar-track"><div class="salary-bar-fill" style="width:72%;background:var(--color-primary);opacity:.8"></div></div><span class="salary-amount">$140K-220K+</span></div>
+          </div>
+        </div>
+        
+        <div class="section-title" style="margin-top:var(--space-4); margin-bottom:var(--space-2)">Work Context</div>
+        <div class="detail-grid" style="margin-top:var(--space-2)">
+          <div class="detail-item"><div class="detail-item-label">Common Backgrounds</div><div class="detail-item-value">Business, Analytics, Operations, Communications</div></div>
+          <div class="detail-item"><div class="detail-item-label">Typical Employers</div><div class="detail-item-value">Corporations, Consulting firms, Nonprofits, Government agencies</div></div>
+          <div class="detail-item"><div class="detail-item-label">Hours / Week</div><div class="detail-item-value">40-55 hrs</div></div>
+          <div class="detail-item"><div class="detail-item-label">Comp Structure</div><div class="detail-item-value">Varies by sector and role level</div></div>
+        </div>
+      </div>
+      <div class="tab-panel" id="kogod-venture-capital-and-tech-inv">
+        <div class="kogod-panel">
+          <div class="kogod-panel-header"><span class="kogod-panel-title">How to Prepare at AU + Kogod</span></div>
+          <div class="kogod-section"><div class="kogod-section-label">Key Courses</div><div class="kogod-tags"><span class="kogod-tag">FIN-614 Financial Management</span><span class="kogod-tag">FIN-672 Investment Analysis</span><span class="kogod-tag">Entrepreneurship and innovation electives when available</span></div></div>
+          <div class="kogod-section"><div class="kogod-section-label">Experiences, Publishing & Networking</div><div class="kogod-tags"><span class="kogod-tag">AI use-case brief</span><a class="kogod-tag" href="https://careers.kogod.american.edu/channels/technology/" target="_blank" rel="noopener noreferrer">Digital transformation case memo</a><a class="kogod-tag" href="https://careers.kogod.american.edu/channels/technology/" target="_blank" rel="noopener noreferrer">Technology career channel resources</a></div></div>
+          
+          
+          
+          <div class="kogod-section"><div class="kogod-section-label">Key Credentials</div><div class="kogod-tags"><span class="cert-tag">Product or analytics portfolio</span><span class="cert-tag">Dashboard or business case sample</span><span class="cert-tag">Responsible AI or cybersecurity brief</span></div></div>
+          <div class="kogod-tip"><strong>Pro tip:</strong> For a student who only knows they are interested in technology, this is a good function to test through one project, one informational interview, and one targeted resume version.</div>
+        </div>
+      </div>
+      <div class="tab-panel" id="pivot-venture-capital-and-tech-inv">
+        <div class="pivot-panel">
+          <div class="pivot-panel-header"><span class="pivot-panel-title">Pivoting Into Venture Capital &amp; Tech Investment</span></div>
+          <div class="pivot-section"><div class="pivot-section-label">Transferable Backgrounds</div><div class="pivot-tags"><span class="pivot-tag">Career changers</span><span class="pivot-tag">Student leadership</span><span class="pivot-tag">Analytics</span><span class="pivot-tag">Client service</span></div></div>
+          <div class="pivot-section"><div class="pivot-section-label">Graduate Pivot Roadmap</div><ul class="pivot-steps"><li class="pivot-step"><span class="pivot-step-num">1</span><span>Translate your past experience into the language of venture capital &amp; tech investment.</span></li><li class="pivot-step"><span class="pivot-step-num">2</span><span>Build one small work sample that shows how you think, not just what classes you took.</span></li><li class="pivot-step"><span class="pivot-step-num">3</span><span>Use informational interviews to learn the entry titles employers actually use.</span></li><li class="pivot-step"><span class="pivot-step-num">4</span><span>Apply to analyst, associate, coordinator, and specialist titles rather than only senior-sounding roles.</span></li></ul></div>
+          <div class="pivot-tip">Graduate students can use this path to test fit quickly because the entry work is visible, portfolio-friendly, and connected to multiple next-step roles.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article></div>
+    <div class="empty-state" id="emptyState">
+      <div class="empty-icon" aria-hidden="true">?</div>
+      <div class="empty-title">No matching functions</div>
+      <div class="empty-subtitle">Try adjusting your search or filters</div>
+    </div>
+  </main>
+
+  <section class="main" style="padding-top:0; padding-bottom:var(--space-12);">
+    <div class="source-note" style="margin-top:0; padding-top:0; border-top:0;">
+      <strong>Source and use note:</strong> This explorer is designed for Kogod graduate students who know an industry sounds interesting but are still learning the actual role families inside it. Salary bands are directional, not guarantees, and combine existing page content with BLS/O*NET occupational families, Kogod career resources, and AU catalog/career-channel context. CliftonStrengths notes are reflection prompts, not rigid fit rules.
+      <div class="sources-list"><a href="https://careers.kogod.american.edu/channels/technology/" target="_blank" rel="noopener noreferrer">Kogod Technology channel</a> · <a href="https://www.bls.gov/ooh/computer-and-information-technology/home.htm" target="_blank" rel="noopener noreferrer">BLS Computer and IT Occupations</a> · <a href="https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm" target="_blank" rel="noopener noreferrer">BLS Software Developers and QA Analysts</a> · <a href="https://careers.kogod.american.edu/labor-market-insights-5/" target="_blank" rel="noopener noreferrer">Kogod Labor Market Insights</a> · <a href="https://www.bls.gov/ooh/" target="_blank" rel="noopener noreferrer">BLS Occupational Outlook Handbook</a> · <a href="https://www.onetonline.org/find/all" target="_blank" rel="noopener noreferrer">O*NET OnLine</a> · <a href="https://careers.kogod.american.edu/resources/what-is-cliftonstrengths/" target="_blank" rel="noopener noreferrer">Kogod CliftonStrengths overview</a> · <a href="https://careers.kogod.american.edu/resources/cliftonstrengths-for-career-exploration/" target="_blank" rel="noopener noreferrer">CliftonStrengths in career exploration</a> · <a href="https://careers.kogod.american.edu/resources/cliftonstrengths-in-interviews/" target="_blank" rel="noopener noreferrer">CliftonStrengths in interviews</a></div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-text">Built for American University Kogod School of Business students exploring technology functions. Reviewed July 1, 2026.</p>
+    </div>
+  </footer>
+
+  <script>(function () {
+      'use strict';
+
+      // ── Theme Toggle ──
+      const toggle = document.querySelector('[data-theme-toggle]');
+      const root = document.documentElement;
+      let currentTheme = 'light';
+      root.setAttribute('data-theme', currentTheme);
+      updateToggleIcon(currentTheme);
+      toggle && toggle.addEventListener('click', () => {
+        currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', currentTheme);
+        updateToggleIcon(currentTheme);
+      });
+      function updateToggleIcon(t) {
+        if (!toggle) return;
+        toggle.setAttribute('aria-label', t === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+        toggle.innerHTML = t === 'dark'
+          ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+          : '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+      }
+
+      // ── Tab System ──
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        const initialCard = btn.dataset.card;
+        const initialTab = btn.dataset.tab;
+        btn.setAttribute('aria-expanded', 'false');
+        btn.setAttribute('aria-controls', initialTab + '-' + initialCard);
+        btn.addEventListener('click', () => {
+          const card = btn.dataset.card;
+          const tab = btn.dataset.tab;
+          const panelsEl = document.getElementById('panels-' + card);
+          const allBtns = btn.closest('.tab-buttons').querySelectorAll('.tab-btn');
+          const allPanels = panelsEl.querySelectorAll('.tab-panel');
+
+          // If clicking an already-active tab, close the panel
+          const isAlreadyActive = btn.classList.contains('active');
+          allBtns.forEach(b => {
+            b.classList.remove('active');
+            b.setAttribute('aria-expanded', 'false');
+          });
+          allPanels.forEach(p => p.classList.remove('active'));
+
+          if (isAlreadyActive) {
+            panelsEl.classList.remove('open');
+          } else {
+            btn.classList.add('active');
+            btn.setAttribute('aria-expanded', 'true');
+            panelsEl.classList.add('open');
+            const targetPanel = document.getElementById(tab + '-' + card);
+            if (targetPanel) targetPanel.classList.add('active');
+          }
+        });
+      });
+
+      document.querySelectorAll('.tab-panels').forEach(panelsEl => {
+        if (panelsEl.querySelector('.panel-close')) return;
+        const closeBtn = document.createElement('button');
+        closeBtn.type = 'button';
+        closeBtn.className = 'panel-close';
+        closeBtn.textContent = 'Close';
+        closeBtn.setAttribute('aria-label', 'Close this card section');
+        panelsEl.prepend(closeBtn);
+        closeBtn.addEventListener('click', () => {
+          const cardEl = panelsEl.closest('.card');
+          const allBtns = cardEl ? cardEl.querySelectorAll('.tab-btn') : [];
+          const allPanels = panelsEl.querySelectorAll('.tab-panel');
+          allBtns.forEach(b => {
+            b.classList.remove('active');
+            b.setAttribute('aria-expanded', 'false');
+          });
+          allPanels.forEach(p => p.classList.remove('active'));
+          panelsEl.classList.remove('open');
+        });
+      });
+
+      // ── Filter & Sort ──
+      const cards = Array.from(document.querySelectorAll('.card'));
+      const grid = document.getElementById('cardsGrid');
+      const searchInput = document.getElementById('searchInput');
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const sortSelect = document.getElementById('sortSelect');
+      const emptyState = document.getElementById('emptyState');
+      const resultsCount = document.getElementById('resultsCount');
+      const originalOrder = [...cards];
+      let activeFilter = 'all', activeSort = 'default', searchTerm = '';
+
+      function updateDisplay() {
+        let visible = [];
+        cards.forEach(card => {
+          const matchesFilter = activeFilter === 'all' || card.dataset.category === activeFilter;
+          const matchesSearch = !searchTerm || card.textContent.toLowerCase().includes(searchTerm);
+          if (matchesFilter && matchesSearch) { card.classList.remove('hidden'); visible.push(card); }
+          else card.classList.add('hidden');
+        });
+        const sorted = [...visible];
+        if (activeSort === 'salary-high') sorted.sort((a, b) => +b.dataset.salaryMid - +a.dataset.salaryMid);
+        else if (activeSort === 'salary-low') sorted.sort((a, b) => +a.dataset.salaryMid - +b.dataset.salaryMid);
+        else if (activeSort === 'name-az') sorted.sort((a, b) => a.dataset.name.localeCompare(b.dataset.name));
+        else if (activeSort === 'name-za') sorted.sort((a, b) => b.dataset.name.localeCompare(a.dataset.name));
+        else sorted.sort((a, b) => originalOrder.indexOf(a) - originalOrder.indexOf(b));
+        sorted.forEach(c => grid.appendChild(c));
+        resultsCount.textContent = visible.length === cards.length ? cards.length + ' functions' : visible.length + ' of ' + cards.length + ' functions';
+        emptyState.classList.toggle('visible', visible.length === 0);
+      }
+
+      filterBtns.forEach(btn => btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeFilter = btn.dataset.filter;
+        updateDisplay();
+      }));
+      sortSelect.addEventListener('change', () => {
+        activeSort = sortSelect.value;
+        updateDisplay();
+        if (activeSort.startsWith('salary')) {
+          cards.forEach(c => { if (!c.classList.contains('hidden')) { c.classList.remove('sort-highlight'); void c.offsetWidth; c.classList.add('sort-highlight'); c.addEventListener('animationend', () => c.classList.remove('sort-highlight'), { once: true }); } });
+        }
+      });
+      let debounce;
+      searchInput.addEventListener('input', () => {
+        clearTimeout(debounce);
+        debounce = setTimeout(() => { searchTerm = searchInput.value.toLowerCase().trim(); updateDisplay(); }, 150);
+      });
+
+      updateDisplay();
+    })();
+  </script>
+</body>
+</html>
+
+
+
